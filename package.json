@@ -1,7 +1,11 @@
 {
   "name": "rvelocity-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AdityaTarale/rvelocity-cli"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
