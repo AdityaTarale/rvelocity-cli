@@ -1,10 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const {
-  getComponentTemplate,
-  getStylesTemplate,
-  barrelTemplate,
-} = require("../templates/generate-file");
 
 module.exports = function (args) {
   const [folderName, componentName, platformFlag] = args;
@@ -28,7 +23,7 @@ module.exports = function (args) {
   const componentFilePath = path.join(componentDir, `${componentName}.tsx`);
   const styleFilePath = path.join(
     componentDir,
-    isReactNative ? "styles.ts" : "style.css"
+    isReactNative ? "styles.ts" : "styles.css"
   );
   const barrelFilePath = path.join(componentDir, "index.ts");
 
@@ -37,17 +32,41 @@ module.exports = function (args) {
     fs.mkdirSync(componentDir, { recursive: true });
   }
 
-  // Get the appropriate templates for the component and styles
-  const componentTemplate = getComponentTemplate(componentName, isReactNative);
-  const stylesTemplate = getStylesTemplate(componentName, isReactNative);
-  const barrelTemplateContent = barrelTemplate(componentName);
+  // Read template files based on platform
+  const templateDir = path.join(__dirname, "..", "templates");
+  const componentTemplatePath = path.join(
+    templateDir,
+    isReactNative ? "react-native.tsx" : "react.tsx"
+  );
+  const stylesTemplatePath = path.join(
+    templateDir,
 
-  // Write the files: component, styles, and barrel
-  fs.writeFileSync(componentFilePath, componentTemplate, "utf8");
-  fs.writeFileSync(styleFilePath, stylesTemplate, "utf8");
-  fs.writeFileSync(barrelFilePath, barrelTemplateContent, "utf8");
+    isReactNative ? "styles.ts" : "styles.css"
+  );
 
-  // Console log success message
+  // Read template content
+  const componentTemplate = fs.readFileSync(componentTemplatePath, "utf8");
+  const stylesTemplate = fs.readFileSync(stylesTemplatePath, "utf8");
+
+  // Replace placeholder in templates
+  const componentContent = componentTemplate.replace(
+    /__COMPONENT_NAME__/g,
+    componentName
+  );
+  const stylesContent = stylesTemplate.replace(
+    /__COMPONENT_NAME__/g,
+    componentName
+  );
+
+  // Barrel template
+  const barrelContent = `export { default } from './${componentName}';`;
+
+  // Write files to disk
+  fs.writeFileSync(componentFilePath, componentContent, "utf8");
+  fs.writeFileSync(styleFilePath, stylesContent, "utf8");
+  fs.writeFileSync(barrelFilePath, barrelContent, "utf8");
+
+  // Log success message
   console.log(
     `${componentName} component for ${
       isReactNative ? "React Native" : "ReactJS"
