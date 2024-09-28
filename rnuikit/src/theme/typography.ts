@@ -20,6 +20,7 @@ const fontSize = {
 };
 
 const lineHeight = {
+  0: 0,
   12: 16,
   14: 18,
   16: 22,
