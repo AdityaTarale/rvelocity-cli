@@ -85,8 +85,33 @@ function initReactNativeProject(projectRoot) {
 
   // Detect the package manager
   const packageManager = detectPackageManager();
-  const dependencies = ["react-native-unistyles"];
-  const devDependencies = ["nodemon"];
+  const dependencies = [
+    "@react-native-community/netinfo",
+    "react-native-unistyles",
+    "@tanstack/react-query",
+    "@tanstack/react-query-persist-client",
+    "@tanstack/query-sync-storage-persister",
+    "react-native-mmkv",
+    "zustand",
+    "axios",
+    "react-native-svg",
+    "react-hook-form",
+    "@hookform/resolvers",
+    "zod",
+    "i18next",
+    "react-i18next",
+    "react-native-vector-icons",
+    "@react-navigation/native",
+    "react-native-screens",
+    "react-native-safe-area-context",
+    "@react-navigation/native-stack",
+    "date-fns",
+  ];
+  const devDependencies = [
+    "babel-plugin-module-resolver",
+    "react-native-svg-transformer",
+    "@types/react-native-vector-icons",
+  ];
 
   // Run the installation
   packageInstaller(packageManager, dependencies);

@@ -1,12 +1,15 @@
-import {View, Text} from 'react-native';
+import { APIProvider } from '@/api/apiProvider';
+import '@/i18n/i18next';
+import NetworkStatusBar from '@/ui/components/NetworkStatusBar';
 import React from 'react';
-import './theme';
+import { Navigator } from './navigation';
 
-const App = () => {
+export const App = () => {
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+    <APIProvider>
+      <NetworkStatusBar />
+      <Navigator/>
+    </APIProvider>
   );
 };
 
