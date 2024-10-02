@@ -2,6 +2,16 @@
 import { program } from "commander";
 import initCommand from "../commands/init.js";
 import generateCommand from "../commands/generate.js";
+import figlet from "figlet";
+
+figlet("Rvelocity CLI", function (err, data) {
+  if (err) {
+    console.log("Something went wrong...");
+    console.dir(err);
+    return;
+  }
+  console.log(data);
+});
 
 program
   .command("init")
