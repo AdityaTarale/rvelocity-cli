@@ -54,9 +54,6 @@ function initReactNativeProject(projectRoot) {
 
     if (fs.existsSync(sourcePath)) {
       copyFolderRecursiveSync(sourcePath, targetPath);
-      console.log(`Copied folder: ${folder}`);
-    } else {
-      console.log(`Folder not found in rnuikit: ${folder}`);
     }
   });
 
@@ -64,9 +61,6 @@ function initReactNativeProject(projectRoot) {
   if (fs.existsSync(rnuikitAssetsPath)) {
     const targetAssetsPath = path.join(projectRoot, "assets");
     copyFolderRecursiveSync(rnuikitAssetsPath, targetAssetsPath); // Copy the assets folder
-    console.log("Copied assets folder.");
-  } else {
-    console.log("Assets folder not found in rnuikit.");
   }
 
   const targetAppRootPath = path.join(projectRoot, "App.tsx");

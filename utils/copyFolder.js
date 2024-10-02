@@ -21,7 +21,6 @@ function copyFolderRecursiveSync(source, target) {
       } else {
         // Copy individual files
         fs.copyFileSync(curSource, curTarget);
-        console.log(`Copied: ${curTarget}`);
       }
     });
   }
