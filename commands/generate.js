@@ -1,7 +1,8 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
+import chalk from "chalk";
 
-module.exports = function (args) {
+export default function (args) {
   const [folderName, componentName, platformFlag] = args;
 
   if (!folderName || !componentName) {
@@ -13,7 +14,6 @@ module.exports = function (args) {
 
   const isReactNative = platformFlag === "-rn";
 
-  // Define paths for the component, styles, and barrel files
   const componentDir = path.join(
     process.cwd(),
     "src",
@@ -40,7 +40,6 @@ module.exports = function (args) {
   );
   const stylesTemplatePath = path.join(
     templateDir,
-
     isReactNative ? "styles.ts" : "styles.css"
   );
 
@@ -68,8 +67,10 @@ module.exports = function (args) {
 
   // Log success message
   console.log(
-    `${componentName} component for ${
-      isReactNative ? "React Native" : "ReactJS"
-    } created successfully in ${folderName}/${componentName}.tsx`
+    chalk.green(
+      `${componentName} component for ${
+        isReactNative ? "React Native" : "ReactJS"
+      } created successfully in ${folderName}/${componentName}.tsx`
+    )
   );
-};
+}

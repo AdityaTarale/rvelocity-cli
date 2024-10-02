@@ -1,27 +1,32 @@
-const fs = require("fs");
-const path = require("path");
-const { packageInstaller } = require("../utils/packageInstaller");
-const { detectPackageManager } = require("../utils/detectPackageManager");
-const { copyFolderRecursiveSync } = require("../utils/copyFolder");
+import fs from "fs";
+import path from "path";
+import { packageInstaller } from "../utils/packageInstaller.js";
+import { detectPackageManager } from "../utils/detectPackageManager.js";
+import { copyFolderRecursiveSync } from "../utils/copyFolder.js";
+import chalk from "chalk";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
-module.exports = function (args) {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default function (args) {
   const isReactNative = args.includes("-rn");
 
   const projectRoot = process.cwd();
   const projectRootSrc = path.join(projectRoot, "src");
 
   if (fs.existsSync(projectRootSrc)) {
-    console.log("Project already initialized.");
+    console.log(chalk.yellow("Project already initialized."));
     return;
   }
 
-  // Initialize for React or React Native based on the flag
   if (isReactNative) {
     initReactNativeProject(projectRoot);
   } else {
     initReactProject(projectRoot);
   }
-};
+}
 
 function initReactNativeProject(projectRoot) {
   const foldersToCopy = [
@@ -86,7 +91,7 @@ function initReactNativeProject(projectRoot) {
   // Run the installation
   packageInstaller(packageManager, dependencies);
   packageInstaller(packageManager, devDependencies, true);
-  console.log("React Native project initialized successfully.");
+  console.log(chalk.green("React Native project initialized successfully."));
 }
 
 function initReactProject(projectRoot) {

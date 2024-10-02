@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const { program } = require("commander");
-const initCommand = require("../commands/init");
-const generateCommand = require("../commands/generate");
+import { program } from "commander";
+import initCommand from "../commands/init.js";
+import generateCommand from "../commands/generate.js";
 
 program
   .command("init")

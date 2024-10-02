@@ -1,7 +1,7 @@
-const { execSync } = require("child_process");
+import chalk from "chalk";
+import { execSync } from "child_process";
 
-// Function to install dependencies and devDependencies
-function packageInstaller(packageManager, packages, isDev = false) {
+export function packageInstaller(packageManager, packages, isDev = false) {
   let installCommand;
 
   switch (packageManager) {
@@ -21,20 +21,19 @@ function packageInstaller(packageManager, packages, isDev = false) {
       process.exit(1);
   }
 
-  // Run the install command
   console.log(
-    `Installing ${
-      isDev ? "dev dependencies" : "dependencies"
-    } with ${packageManager}...`
+    chalk.blue(
+      `Installing ${
+        isDev ? "dev dependencies" : "dependencies"
+      } with ${packageManager}...`
+    )
   );
   try {
     execSync(installCommand, { stdio: "inherit" });
   } catch {
-    console.error(`Failed to install packages with ${packageManager}`);
+    console.log(
+      chalk.red.bold(`Failed to install packages with ${packageManager}`)
+    );
     process.exit(1);
   }
 }
-
-module.exports = {
-  packageInstaller,
-};

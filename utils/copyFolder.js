@@ -1,14 +1,12 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
 
-function copyFolderRecursiveSync(source, target) {
-  // Check if folder needs to be created or integrated
-  const targetFolder = target; // Copy directly to the root of the new project
+export function copyFolderRecursiveSync(source, target) {
+  const targetFolder = target;
   if (!fs.existsSync(targetFolder)) {
     fs.mkdirSync(targetFolder, { recursive: true });
   }
 
-  // Copy files and subdirectories
   if (fs.lstatSync(source).isDirectory()) {
     let files = fs.readdirSync(source);
     files.forEach((file) => {
@@ -16,16 +14,10 @@ function copyFolderRecursiveSync(source, target) {
       const curTarget = path.join(targetFolder, file);
 
       if (fs.lstatSync(curSource).isDirectory()) {
-        // Recursively copy subdirectories
         copyFolderRecursiveSync(curSource, curTarget);
       } else {
-        // Copy individual files
         fs.copyFileSync(curSource, curTarget);
       }
     });
   }
 }
-
-module.exports = {
-  copyFolderRecursiveSync,
-};

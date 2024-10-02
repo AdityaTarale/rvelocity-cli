@@ -2,6 +2,7 @@
   "name": "rvelocity-cli",
   "version": "1.0.2",
   "main": "index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/AdityaTarale/rvelocity-cli"
@@ -22,6 +23,7 @@
     "prettier": "^3.3.3"
   },
   "dependencies": {
+    "chalk": "^5.3.0",
     "commander": "^12.1.0"
   }
 }

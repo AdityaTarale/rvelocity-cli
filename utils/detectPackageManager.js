@@ -1,7 +1,7 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
 
-function detectPackageManager() {
+export function detectPackageManager() {
   if (fs.existsSync(path.join(process.cwd(), "yarn.lock"))) {
     return "yarn";
   } else if (fs.existsSync(path.join(process.cwd(), "pnpm-lock.yaml"))) {
@@ -9,11 +9,6 @@ function detectPackageManager() {
   } else if (fs.existsSync(path.join(process.cwd(), "package-lock.json"))) {
     return "npm";
   } else {
-    //   If no lock file exists, assume it will be installed via yarn
     return "yarn";
   }
 }
-
-module.exports = {
-  detectPackageManager,
-};
