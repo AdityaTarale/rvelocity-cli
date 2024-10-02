@@ -7,7 +7,7 @@ const { copyFolderRecursiveSync } = require("../utils/copyFolder");
 module.exports = function (args) {
   const isReactNative = args.includes("-rn");
 
-  const projectRoot = path.join(process.cwd());
+  const projectRoot = process.cwd();
   const projectRootSrc = path.join(projectRoot, "src");
 
   if (fs.existsSync(projectRootSrc)) {
@@ -19,7 +19,7 @@ module.exports = function (args) {
   if (isReactNative) {
     initReactNativeProject(projectRoot);
   } else {
-    initReactProject();
+    initReactProject(projectRoot);
   }
 };
 
@@ -46,8 +46,10 @@ function initReactNativeProject(projectRoot) {
   const rnuikitIndexPath = path.join(rnuikitPath, "index.js");
 
   const targetIndexPath = path.join(projectRoot, "index.js");
+  const targetAppRootPath = path.join(projectRoot, "App.tsx");
+  const targetAppSrcPath = path.join(projectRoot, "src", "App.tsx");
 
-  // copy files from rnuikit;
+  // Copy files from rnuikit;
   foldersToCopy.forEach((folder) => {
     const sourcePath = path.join(rnuikitSrcPath, folder);
     const targetPath = path.join(projectRoot, "src", folder);
@@ -57,41 +59,36 @@ function initReactNativeProject(projectRoot) {
     }
   });
 
-  // copy assets folder separately
+  // Copy assets folder separately
   if (fs.existsSync(rnuikitAssetsPath)) {
     const targetAssetsPath = path.join(projectRoot, "assets");
     copyFolderRecursiveSync(rnuikitAssetsPath, targetAssetsPath); // Copy the assets folder
   }
 
-  const targetAppRootPath = path.join(projectRoot, "App.tsx");
-  const targetAppSrcPath = path.join(projectRoot, "src", "App.tsx");
-
-  // code for updating App.tsx and indexl
-  // Delete App.tsx from root if it exists
+  // Move App.tsx from root to src
   if (fs.existsSync(targetAppRootPath)) {
-    fs.unlinkSync(targetAppRootPath);
-    // "Deleted App.tsx from root."
+    fs.renameSync(targetAppRootPath, targetAppSrcPath);
   }
-
-  // Copy App.tsx from rnuikit to src in the target project
+  // Copy App.tsx from rnuikit if it doesn't exist
   if (fs.existsSync(rnuikitAppPath)) {
     fs.copyFileSync(rnuikitAppPath, targetAppSrcPath);
-    // "Copied App.tsx to src."
   }
 
+  // Update index.js
   const rnuikitIndexTemplate = fs.readFileSync(rnuikitIndexPath, "utf8");
-  // Overwrite index.js with new content
   fs.writeFileSync(targetIndexPath, rnuikitIndexTemplate, "utf8");
-  // "Updated index.js."
 
   // Detect the package manager
   const packageManager = detectPackageManager();
   const dependencies = ["react-native-unistyles"];
   const devDependencies = ["nodemon"];
+
   // Run the installation
   packageInstaller(packageManager, dependencies);
   packageInstaller(packageManager, devDependencies, true);
-  console.log("React Native project initialized");
+  console.log("React Native project initialized successfully.");
 }
 
-function initReactProject() {}
+function initReactProject(projectRoot) {
+  // Your logic for initializing a React project here
+}

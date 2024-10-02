@@ -1,15 +1,23 @@
 #!/usr/bin/env node
-const [command, ...args] = process.argv.slice(2);
+const { program } = require("commander");
+const initCommand = require("../commands/init");
+const generateCommand = require("../commands/generate");
 
-switch (command) {
-  case "g":
-    require("../commands/generate")(args);
-    break;
-  case "init":
-    require("../commands/init")(args);
-    break;
-  default:
-    console.error(`Unknown command: ${command}`);
-    console.log("Available commands: rc g, rc init [-rn]");
-    process.exit(1);
-}
+program
+  .command("init")
+  .description("Initialize a new React or React Native project")
+  .option("-rn, --react-native", "Initialize a React Native project")
+  .action((options) => {
+    const args = options.reactNative ? ["-rn"] : [];
+    initCommand(args);
+  });
+
+program
+  .command("g <folder> <component> [platform]")
+  .description("Generate a new component for React or React Native")
+  .action((folder, component, platform) => {
+    const args = [folder, component, platform];
+    generateCommand(args);
+  });
+
+program.parse(process.argv);

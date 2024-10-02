@@ -20,5 +20,8 @@
   "packageManager": "yarn@3.6.4",
   "devDependencies": {
     "prettier": "^3.3.3"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
   }
 }
