@@ -1,7 +1,5 @@
 {
-	"files.exclude": {
-		"**/node_modules": true,
-		"**/.yarn": true,
-		".yarnrc.yml": true,
-	}
+  "files.exclude": {
+    "**/node_modules": true,
+  }
 }

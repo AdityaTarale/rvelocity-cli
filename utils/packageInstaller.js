@@ -29,7 +29,7 @@ function packageInstaller(packageManager, packages, isDev = false) {
   );
   try {
     execSync(installCommand, { stdio: "inherit" });
-  } catch (error) {
+  } catch {
     console.error(`Failed to install packages with ${packageManager}`);
     process.exit(1);
   }

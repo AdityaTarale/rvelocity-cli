@@ -7,7 +7,8 @@
     "url": "https://github.com/AdityaTarale/rvelocity-cli"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write ."
   },
   "bin": {
     "rc": "./bin/cli.js"
@@ -16,5 +17,8 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "packageManager": "yarn@3.6.4"
+  "packageManager": "yarn@3.6.4",
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
 }

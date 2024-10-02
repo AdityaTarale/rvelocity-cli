@@ -1,0 +1,9 @@
+# Ignore TypeScript files
+*.ts
+
+# Ignore the rnuikit folder
+rnuikit/
+
+# Other ignores
+node_modules/
+dist/

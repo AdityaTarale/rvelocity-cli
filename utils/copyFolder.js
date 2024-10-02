@@ -10,7 +10,7 @@ function copyFolderRecursiveSync(source, target) {
 
   // Copy files and subdirectories
   if (fs.lstatSync(source).isDirectory()) {
-    files = fs.readdirSync(source);
+    let files = fs.readdirSync(source);
     files.forEach((file) => {
       const curSource = path.join(source, file);
       const curTarget = path.join(targetFolder, file);

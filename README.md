@@ -1,10 +1,8 @@
-
 # rvelocity-cli
 
 ![npm version](https://img.shields.io/npm/v/rvelocity-cli)
 
-
-`rvelocity-cli` 
+`rvelocity-cli`
 is a simple and efficient command-line tool to generate React and React Native components. It helps developers reduce repetitive tasks by automatically generating the necessary files, including component files, styles, and barrel files, based on the environment (ReactJS or React Native).
 
 ## Features
