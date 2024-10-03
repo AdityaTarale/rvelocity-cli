@@ -10,8 +10,8 @@ import { packageInstaller } from "../utils/packageInstaller.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export default function (args) {
-  const isReactNative = args.includes("-rn");
+export default function (platform) {
+  const isReactNative = platform === "react-native";
 
   const projectRoot = process.cwd();
   const projectRootSrc = path.join(projectRoot, "src");

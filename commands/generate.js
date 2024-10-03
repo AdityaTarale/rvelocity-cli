@@ -1,26 +1,25 @@
 import fs from "fs";
-import path from "path";
+import path, { dirname } from "path";
 import chalk from "chalk";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export default function (args) {
-  const [folderName, componentName, platformFlag] = args;
+  const [folder, component, platform] = args;
 
-  if (!folderName || !componentName) {
+  if (!folder || !component) {
     console.error(
       "Please provide folder and component name: rc g <folder> <component> [-rn]"
     );
     process.exit(1);
   }
 
-  const isReactNative = platformFlag === "-rn";
+  const isReactNative = platform === "react-native";
 
-  const componentDir = path.join(
-    process.cwd(),
-    "src",
-    folderName,
-    componentName
-  );
-  const componentFilePath = path.join(componentDir, `${componentName}.tsx`);
+  const componentDir = path.join(process.cwd(), "src", folder, component);
+  const componentFilePath = path.join(componentDir, `${component}.tsx`);
   const styleFilePath = path.join(
     componentDir,
     isReactNative ? "styles.ts" : "styles.css"
@@ -50,15 +49,15 @@ export default function (args) {
   // Replace placeholder in templates
   const componentContent = componentTemplate.replace(
     /__COMPONENT_NAME__/g,
-    componentName
+    component
   );
   const stylesContent = stylesTemplate.replace(
     /__COMPONENT_NAME__/g,
-    componentName
+    component
   );
 
   // Barrel template
-  const barrelContent = `export { default } from './${componentName}';`;
+  const barrelContent = `export { default } from './${component}';`;
 
   // Write files to disk
   fs.writeFileSync(componentFilePath, componentContent, "utf8");
@@ -68,9 +67,9 @@ export default function (args) {
   // Log success message
   console.log(
     chalk.green(
-      `${componentName} component for ${
+      `${component} component for ${
         isReactNative ? "React Native" : "ReactJS"
-      } created successfully in ${folderName}/${componentName}.tsx`
+      } created successfully in ${folder}/${component}.tsx`
     )
   );
 }

@@ -31,16 +31,18 @@ program
   .description("Initialize a new React or React Native project")
   .option("-rn, --react-native", "Initialize a React Native project")
   .action((options) => {
-    const args = options.reactNative ? ["-rn"] : [];
-    initCommand(args);
+    const platform = options.reactNative ? "react-native" : "react";
+    generateCommand(platform);
+    initCommand(options);
   });
 
 program
-  .command("g <folder> <component> [platform]")
+  .command("g <folder> <component>")
   .description("Generate a new component for React or React Native")
-  .action((folder, component, platform) => {
-    const args = [folder, component, platform];
-    generateCommand(args);
+  .option("-rn, --react-native", "Generate a component for React Native")
+  .action((folder, component, options) => {
+    const platform = options.reactNative ? "react-native" : "react";
+    generateCommand([folder, component, platform]);
   });
 
 program
