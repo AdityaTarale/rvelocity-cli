@@ -1,11 +1,11 @@
-import fs from "fs";
-import path from "path";
-import { packageInstaller } from "../utils/packageInstaller.js";
-import { detectPackageManager } from "../utils/detectPackageManager.js";
-import { copyFolderRecursiveSync } from "../utils/copyFolder.js";
 import chalk from "chalk";
-import { dirname } from "path";
+import fs from "fs";
+import open from "open";
+import path, { dirname } from "path";
 import { fileURLToPath } from "url";
+import { copyFolderRecursiveSync } from "../utils/copyFolder.js";
+import { detectPackageManager } from "../utils/detectPackageManager.js";
+import { packageInstaller } from "../utils/packageInstaller.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -49,10 +49,12 @@ function initReactNativeProject(projectRoot) {
   const rnuikitAssetsPath = path.join(rnuikitPath, "assets");
   const rnuikitAppPath = path.join(rnuikitSrcPath, "App.tsx");
   const rnuikitIndexPath = path.join(rnuikitPath, "index.js");
+  const rnuiKitMetroConfigPath = path.join(rnuikitPath, "metro.config.js");
 
   const targetIndexPath = path.join(projectRoot, "index.js");
   const targetAppRootPath = path.join(projectRoot, "App.tsx");
   const targetAppSrcPath = path.join(projectRoot, "src", "App.tsx");
+  const targetMetroConfigPath = path.join(projectRoot, "metro.config.js");
 
   // Copy files from rnuikit;
   foldersToCopy.forEach((folder) => {
@@ -82,6 +84,13 @@ function initReactNativeProject(projectRoot) {
   // Update index.js
   const rnuikitIndexTemplate = fs.readFileSync(rnuikitIndexPath, "utf8");
   fs.writeFileSync(targetIndexPath, rnuikitIndexTemplate, "utf8");
+
+  // Update metro.config.js whole file
+  const rnuikitMetroConfigTemplate = fs.readFileSync(
+    rnuiKitMetroConfigPath,
+    "utf8"
+  );
+  fs.writeFileSync(targetMetroConfigPath, rnuikitMetroConfigTemplate, "utf8");
 
   // Detect the package manager
   const packageManager = detectPackageManager();
@@ -117,6 +126,9 @@ function initReactNativeProject(projectRoot) {
   packageInstaller(packageManager, dependencies);
   packageInstaller(packageManager, devDependencies, true);
   console.log(chalk.green("React Native project initialized successfully."));
+  open(
+    "https://github.com/AdityaTarale/rvelocity-cli/blob/main/REACTNATIVE_INIT.md"
+  );
 }
 
 function initReactProject(projectRoot) {

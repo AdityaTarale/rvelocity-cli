@@ -1,16 +1,17 @@
 # rvelocity-cli
-
 ![npm version](https://img.shields.io/npm/v/rvelocity-cli)
 
-`rvelocity-cli`
-is a simple and efficient command-line tool to generate React and React Native components. It helps developers reduce repetitive tasks by automatically generating the necessary files, including component files, styles, and barrel files, based on the environment (ReactJS or React Native).
+A CLI for generating and managing React and React Native components with ease.
 
-## Features
+## Description & Introduction
 
-- Generate components for both ReactJS and React Native.
-- Automatically creates `Component.tsx`, `styles.ts`/`styles.css`, and `index.ts` files.
-- Easy-to-use CLI commands to speed up component creation.
-- Reduces repetitive tasks, allowing you to focus on building features.
+`rvelocity-cli` simplifies the development process by offering quick commands to initialize new React/React Native projects and create components. It helps developers focus on building features rather than dealing with repetitive tasks.
+
+## Technical Features
+
+- **Initialize Project Setup**: Set up a React/React Native project with the required structure and configuration in one command.
+- **Create Components**: Generate React or React Native components using a single command to speed up development.
+
 
 ## Installation
 
@@ -20,73 +21,9 @@ To install `rvelocity-cli` globally, run:
 npm install -g rvelocity-cli
 ```
 
-## Usage
+## Documentation
 
-You can use `rvelocity-cli` to generate a new ReactJS or React Native component with a single command.
-
-### For ReactJS:
-
-```bash
-rc g <folderName> <componentName>
-```
-
-Example:
-
-```bash
-rc g components Button
-```
-
-This will create the following structure:
-
-```
-src/components/Button/
-  ├── Button.tsx
-  ├── styles.css
-  └── index.ts
-```
-
-### For React Native:
-
-Use the `-rn` flag to generate React Native components.
-
-```bash
-rc g <folderName> <componentName> -rn
-```
-
-Example:
-
-```bash
-rc g components Button -rn
-```
-
-This will create the following structure:
-
-```
-src/components/Button/
-  ├── Button.tsx
-  ├── styles.ts
-  └── index.ts
-```
-
-### Explanation of Files:
-
-- **`Button.tsx`**: The main component file.
-- **`styles.css`/`styles.ts`**: The style file for ReactJS (CSS) or React Native (StyleSheet).
-- **`index.ts`**: Barrel file for easier imports.
-
-## Example
-
-### Generating a ReactJS Button component:
-
-```bash
-rc g components Button
-```
-
-### Generating a React Native HomeScreen component:
-
-```bash
-rc g screens HomeScreen -rn
-```
+For detailed usage and command options, refer to the [CLI Documentation](./CLI.md).
 
 ## Contributing
 
