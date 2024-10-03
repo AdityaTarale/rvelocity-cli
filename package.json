@@ -1,6 +1,6 @@
 {
   "name": "rvelocity-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "type": "module",
   "repository": {
@@ -14,7 +14,17 @@
   "bin": {
     "rc": "./bin/cli.js"
   },
-  "keywords": [],
+  "keywords": [
+    "react-native",
+    "react-native-cli",
+    "react-cli",
+    "component-generator",
+    "code-generator",
+    "ui-library",
+    "react-native-ui",
+    "react-native-tooling",
+    "react-native-setup"
+  ],
   "author": "",
   "license": "ISC",
   "description": "",

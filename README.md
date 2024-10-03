@@ -20,6 +20,6 @@ npm install -g rvelocity-cli
 ### Documentation
 For detailed usage and command options, refer to the [CLI Documentation](./CLI.md).
 
-## Contributing
+### Contributing
 Contributions are welcome! If you'd like to contribute, please fork the repository and submit a pull request.
 For any issues or feature requests, feel free to open an issue on [GitHub](https://github.com/AdityaTarale/rvelocity-cli).
