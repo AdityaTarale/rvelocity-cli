@@ -1,5 +1,5 @@
 
-# React Native
+## React Native
 
 ### Initialize a React Native Project
 

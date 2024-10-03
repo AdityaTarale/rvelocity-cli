@@ -1,16 +1,16 @@
 
-# React Native Init Setup Guide
+## React Native Init Setup Guide
 
 This guide walks through the some user level setup for a React Native project. Which is necessary to make react native init setup complete
 Follow the instructions below to configure paths, enable new architecture, and adjust navigation settings.
 
 ---
 
-## 1. Absolute Path Setup
+### 1. Absolute Path Setup
 
 To simplify imports using absolute paths, configure `tsconfig.json` and `babel.config.js` with the following settings.
 
-### Update `babel.config.js`
+#### Update `babel.config.js`
 
 Add the following `plugins` section to your `babel.config.js`:
 
@@ -28,7 +28,7 @@ plugins: [
 ],
 ```
 
-### Update `tsconfig.json`
+#### Update `tsconfig.json`
 
 Modify the `compilerOptions` in your `tsconfig.json` to set the base URL and paths:
 
@@ -52,11 +52,11 @@ This will allow you to import files with aliases like `@/components/Button` or `
 
 ---
 
-## 2. Enable New Architecture with `react-native-mmkv`
+### 2. Enable New Architecture with `react-native-mmkv`
 
 To enable the new architecture for `react-native-mmkv`, you need to update the `gradle.properties` file.
 
-### Update `gradle.properties`
+#### Update `gradle.properties`
 
 Add the following line to `android/gradle.properties`:
 
@@ -68,11 +68,11 @@ This enables the new architecture and unlocks improved performance and features.
 
 ---
 
-## 3. Navigation Changes in `MainActivity.kt`
+### 3. Navigation Changes in `MainActivity.kt`
 
 When setting up navigation (e.g., using React Navigation), you may need to modify `MainActivity.kt` to handle navigation correctly.
 
-### Modify `MainActivity.kt`
+#### Modify `MainActivity.kt`
 
 1. Add the following import statement at the top of this `MainActivity.kt` file:
 

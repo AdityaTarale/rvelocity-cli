@@ -49,11 +49,11 @@ Generate a component for your project
 - `-rn`: Generate a React Native component.
 
 
-## Example
+### Example
 
 You can use `rvelocity-cli` to generate a new ReactJS or React Native component with a single command.
 
-### For ReactJS:
+#### For ReactJS:
 
 ```bash
 rc g <folderName> <componentName>
@@ -74,7 +74,7 @@ src/components/Button/
   └── index.ts
 ```
 
-### For React Native:
+#### For React Native:
 
 Use the `-rn` flag to generate React Native components.
 
@@ -105,13 +105,13 @@ src/components/Button/
 
 ## More Example
 
-### Generating a ReactJS Button component:
+#### Generating a ReactJS Button component:
 
 ```bash
 rc g components Button
 ```
 
-### Generating a React Native HomeScreen component:
+#### Generating a React Native HomeScreen component:
 
 ```bash
 rc g screens HomeScreen -rn
