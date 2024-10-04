@@ -2,7 +2,7 @@ const fontWeight = {
   regular: '400',
   medium: '500',
   semiBold: '600',
-  bold: '700',
+  bold: '700'
 };
 
 const fontSize = {
@@ -16,7 +16,7 @@ const fontSize = {
   32: 32,
   40: 40,
   56: 56,
-  64: 64,
+  64: 64
 };
 
 const lineHeight = {
@@ -31,7 +31,7 @@ const lineHeight = {
   32: 40,
   40: 48,
   56: 60,
-  64: 70,
+  64: 70
 };
 
 export {fontWeight, fontSize, lineHeight};

@@ -5,7 +5,7 @@ type AppStateCallback = () => void;
 
 const useAppState = (
   callback: AppStateCallback,
-  targetAppStates: AppStateStatus[] = ['background', 'inactive'],
+  targetAppStates: AppStateStatus[] = ['background', 'inactive']
 ) => {
   useEffect(() => {
     const handleAppStateChange = (nextAppState: AppStateStatus) => {
@@ -14,10 +14,7 @@ const useAppState = (
       }
     };
 
-    const subscription = AppState.addEventListener(
-      'change',
-      handleAppStateChange,
-    );
+    const subscription = AppState.addEventListener('change', handleAppStateChange);
 
     return () => {
       subscription.remove();

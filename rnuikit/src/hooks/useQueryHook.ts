@@ -1,11 +1,8 @@
 import {
   useQuery as useReactFetchQuery,
-  useMutation as useReactMutationQuery,
+  useMutation as useReactMutationQuery
 } from '@tanstack/react-query';
-import {
-  ReactQueryGetConfig,
-  ReactQueryMutationConfig,
-} from '@/types/reactQueryConfig';
+import {ReactQueryGetConfig, ReactQueryMutationConfig} from '@/types/reactQueryConfig';
 import {apiTrigger} from '@/api/apiTrigger';
 import {queryKeys} from '@/api';
 
@@ -25,9 +22,7 @@ export const useMutation = <T>(config: ReactQueryMutationConfig<T>) => {
 
 export const generateQueryKey = <T>(config: ReactQueryGetConfig<T>) => {
   const {queryKey, queryParams, shouldPersist} = config;
-  const keyParts = shouldPersist
-    ? [...queryKeys.persist, ...queryKey]
-    : [...queryKey];
+  const keyParts = shouldPersist ? [...queryKeys.persist, ...queryKey] : [...queryKey];
 
   if (queryParams) {
     const sortedParams = Object.entries(queryParams).sort();

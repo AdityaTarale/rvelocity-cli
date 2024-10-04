@@ -15,15 +15,13 @@ const isTablet = (): boolean => {
   if (pixelDensity < 2 && (adjustedWidth >= 1000 || adjustedHeight >= 1000)) {
     return true;
   }
-  return (
-    pixelDensity === 2 && (adjustedWidth >= 1824 || adjustedHeight >= 1824)
-  );
+  return pixelDensity === 2 && (adjustedWidth >= 1824 || adjustedHeight >= 1824);
 };
 
 export const detectDevice: IDetectDevice = {
   isAndroid: Platform.OS === 'android',
   isIOS: Platform.OS === 'ios',
-  isTablet: isTablet(),
+  isTablet: isTablet()
 };
 
 export default detectDevice;

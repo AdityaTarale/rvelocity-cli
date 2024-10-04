@@ -3,7 +3,6 @@ type useStringHelperReturn = {
   camelize: (text: string) => string;
 };
 
-
 const capitalFirstLetter = (text: string): string => {
   return text.charAt(0).toUpperCase() + text.substring(1);
 };
@@ -18,6 +17,6 @@ const camelize = (str: string): string => {
 export const stringHelper = {
   capitalFirstLetter,
   camelize
-} as useStringHelperReturn
+} as useStringHelperReturn;
 
 export default stringHelper;

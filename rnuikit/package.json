@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
+    "format": "prettier --write .",
     "start": "react-native start",
     "test": "jest",
     "adb": "adb reverse tcp:8081 tcp:8081",
@@ -13,7 +14,6 @@
     "clean:android": "cd android && ./gradlew clean && ./gradlew build && cd ..",
     "clean:ios": "rm -rf ios/Pods && rm -rf ios/Podfile.lock",
     "pod-install": "cd ios && RCT_NEW_ARCH_ENABLED=1 bundle exec pod install"
-  
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

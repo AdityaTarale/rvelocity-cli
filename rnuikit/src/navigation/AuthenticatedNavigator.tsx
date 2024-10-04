@@ -3,8 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {AuthenticatedStackNavigatorParamList} from '@/types/navigation';
 
-const Stack =
-  createNativeStackNavigator<AuthenticatedStackNavigatorParamList>();
+const Stack = createNativeStackNavigator<AuthenticatedStackNavigatorParamList>();
 
 export const AuthenticatedNavigator = () => {
   return (

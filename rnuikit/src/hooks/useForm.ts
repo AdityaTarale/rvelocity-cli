@@ -1,18 +1,14 @@
-import {
-  UseFormReturn,
-  useForm as useReactHookForm,
-  DefaultValues,
-} from 'react-hook-form';
+import {UseFormReturn, useForm as useReactHookForm, DefaultValues} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {ZodSchema, TypeOf} from 'zod';
 
 export const useForm = <T extends ZodSchema>(
   schema: T,
-  defaultValues: DefaultValues<TypeOf<T>>,
+  defaultValues: DefaultValues<TypeOf<T>>
 ): UseFormReturn<TypeOf<T>> => {
   const formMethods = useReactHookForm<TypeOf<T>>({
     resolver: zodResolver(schema),
-    defaultValues,
+    defaultValues
   });
 
   return formMethods;

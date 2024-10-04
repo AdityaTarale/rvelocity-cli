@@ -27,7 +27,7 @@ export const vectorIcons = {
   materialCommunity: MaterialCommunityIcons,
   octicon: Octicons,
   simpleLine: SimpleLineIcons,
-  zocial: Zocial,
+  zocial: Zocial
 };
 
 export type IconKeys = keyof typeof vectorIcons;

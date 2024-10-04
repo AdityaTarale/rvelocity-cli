@@ -4,7 +4,7 @@ const lightPalettes = {
   black80: 'black80',
   black60: 'black60',
   white80: 'white80',
-  white100: 'white100',
+  white100: 'white100'
 };
 
 const lightColors = {
@@ -13,7 +13,7 @@ const lightColors = {
   textPrimary: lightPalettes.black100,
   textSecondary: lightPalettes.black80,
   cardBackground: lightPalettes.white80,
-  borderColor: lightPalettes.black60,
+  borderColor: lightPalettes.black60
 };
 
 export default lightColors;

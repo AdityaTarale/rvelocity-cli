@@ -11,7 +11,7 @@ export const darkTheme = {
   fontSize,
   lineHeight,
   margins,
-  shadows,
+  shadows
 } as const;
 
 export const lightTheme = {
@@ -20,7 +20,7 @@ export const lightTheme = {
   fontSize,
   lineHeight,
   margins,
-  shadows,
+  shadows
 } as const;
 
 export type Theme = typeof lightTheme;

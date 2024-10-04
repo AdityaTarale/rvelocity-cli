@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text as RnText,
-  TextProps as RnTextProps,
-  StyleProp,
-  TextStyle,
-} from 'react-native';
+import {View, Text as RnText, TextProps as RnTextProps, StyleProp, TextStyle} from 'react-native';
 import {useStyles} from 'react-native-unistyles';
 import {Theme} from '../../theme';
 
@@ -13,7 +7,7 @@ const fontWeightMap: Record<string, TextStyle['fontWeight']> = {
   regular: '400',
   medium: '500',
   semiBold: '600',
-  bold: '700',
+  bold: '700'
 };
 
 interface TextProps extends RnTextProps {
@@ -44,7 +38,7 @@ const Text: React.FC<TextProps> = ({
     lineHeight: lineHeight ? theme.lineHeight[lineHeight] : undefined,
     color: theme.colors[color],
     textAlign: align,
-    letterSpacing: theme.margins[spacing] || 0,
+    letterSpacing: theme.margins[spacing] || 0
   };
 
   return (

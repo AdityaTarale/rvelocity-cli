@@ -7,14 +7,7 @@ export interface IUseAPI extends ReactQueryConfig {
 }
 
 export const apiTrigger = async <T>(config: IUseAPI): Promise<T> => {
-  const {
-    url,
-    method,
-    useApiGuestClient,
-    queryParams,
-    customHeaders,
-    requestBody,
-  } = config;
+  const {url, method, useApiGuestClient, queryParams, customHeaders, requestBody} = config;
 
   // ApiGuestClient can be used for API that don't need auth
   const axiosClient = useApiGuestClient ? ApiGuestClient : ApiClient;
@@ -25,7 +18,7 @@ export const apiTrigger = async <T>(config: IUseAPI): Promise<T> => {
     url,
     params: queryParams,
     headers: {...customHeaders},
-    data: requestBody,
+    data: requestBody
   });
 
   return res.data;

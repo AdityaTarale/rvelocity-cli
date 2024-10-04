@@ -16,7 +16,7 @@ const zustandStorage: StateStorage = {
   },
   removeItem: name => {
     return storage.delete(name);
-  },
+  }
 };
 
 export const clearUserStorage = () => {

@@ -10,20 +10,20 @@ i18next.use(initReactI18next).init({
   fallbackLng: 'en',
   debug: true, // based on env
   interpolation: {
-    escapeValue: false, // not needed for react as it escapes by default
+    escapeValue: false // not needed for react as it escapes by default
   },
   resources: {
     en: {
-      translation: en,
-    },
+      translation: en
+    }
   },
   react: {
-    useSuspense: false /* in case you have any suspense related errors */,
+    useSuspense: false /* in case you have any suspense related errors */
     /*
     Mark this false if you don't want to use suspense else
     you will end up getting a no fallback ui error for sure
     */
-  },
+  }
 });
 
 const translate = (key: string): string => {

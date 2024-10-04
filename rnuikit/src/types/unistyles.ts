@@ -17,8 +17,8 @@ import {UnistylesRegistry} from 'react-native-unistyles';
 UnistylesRegistry.addBreakpoints(breakpoints)
   .addThemes({
     light: lightTheme,
-    dark: darkTheme,
+    dark: darkTheme
   })
   .addConfig({
-    adaptiveThemes: true,
+    adaptiveThemes: true
   });

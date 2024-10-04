@@ -1,12 +1,8 @@
-import {
-  type NavigationContainer,
-  type NavigatorScreenParams,
-} from '@react-navigation/native';
+import {type NavigationContainer, type NavigatorScreenParams} from '@react-navigation/native';
 import {type NativeStackScreenProps} from '@react-navigation/native-stack';
 import {type ComponentProps} from 'react';
 
-export interface NavigationProps
-  extends Partial<ComponentProps<typeof NavigationContainer>> {}
+export interface NavigationProps extends Partial<ComponentProps<typeof NavigationContainer>> {}
 
 export type RootNavigatorParamList = {
   UnAuthenticatedStack: NavigatorScreenParams<UnAuthenticatedStackNavigatorParamList>;
@@ -25,11 +21,11 @@ export type RootNavigatorScreenProps<T extends keyof RootNavigatorParamList> =
   NativeStackScreenProps<RootNavigatorParamList, T>;
 
 export type UnAuthenticatedStackNavigatorScreenProps<
-  T extends keyof UnAuthenticatedStackNavigatorParamList,
+  T extends keyof UnAuthenticatedStackNavigatorParamList
 > = NativeStackScreenProps<UnAuthenticatedStackNavigatorParamList, T>;
 
 export type AuthenticatedStackNavigatorScreenProps<
-  T extends keyof AuthenticatedStackNavigatorParamList,
+  T extends keyof AuthenticatedStackNavigatorParamList
 > = NativeStackScreenProps<AuthenticatedStackNavigatorParamList, T>;
 
 declare global {

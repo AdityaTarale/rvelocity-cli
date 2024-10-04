@@ -15,15 +15,9 @@ export const Navigator = (props: NavigationProps) => {
     <NavigationContainer {...props}>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         {isLoggedIn ? (
-          <Stack.Screen
-            name="AuthenticatedStack"
-            component={AuthenticatedNavigator}
-          />
+          <Stack.Screen name="AuthenticatedStack" component={AuthenticatedNavigator} />
         ) : (
-          <Stack.Screen
-            name="UnAuthenticatedStack"
-            component={UnAuthenticatedNavigator}
-          />
+          <Stack.Screen name="UnAuthenticatedStack" component={UnAuthenticatedNavigator} />
         )}
       </Stack.Navigator>
     </NavigationContainer>

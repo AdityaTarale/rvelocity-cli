@@ -12,8 +12,8 @@ const ApiClient = axios.create({
     'Content-Type': 'application/json',
     Accept: 'application/json',
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, PATCH',
-  },
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, PATCH'
+  }
 });
 
 ApiClient.interceptors.request.use(
@@ -24,7 +24,7 @@ ApiClient.interceptors.request.use(
     reqConfig.headers.Authorization = `Bearer ${accessToken}`;
     return reqConfig;
   },
-  error => Promise.reject(error),
+  error => Promise.reject(error)
 );
 
 ApiClient.interceptors.response.use(
@@ -33,13 +33,13 @@ ApiClient.interceptors.response.use(
     if (!error || !error.response) {
       const serverError = {
         data: {
-          message: 'Server error. Please try again later.',
-        },
+          message: 'Server error. Please try again later.'
+        }
       };
       return Promise.reject(serverError);
     }
     return Promise.reject(error);
-  },
+  }
 );
 
 const ApiGuestClient = axios.create({
@@ -49,8 +49,8 @@ const ApiGuestClient = axios.create({
     'Content-Type': 'application/json',
     Accept: 'application/json',
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, PATCH',
-  },
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, PATCH'
+  }
 });
 
 ApiGuestClient.interceptors.response.use(
@@ -59,13 +59,13 @@ ApiGuestClient.interceptors.response.use(
     if (!error || !error.response) {
       const serverError = {
         data: {
-          message: 'Server error. Please try again later.',
-        },
+          message: 'Server error. Please try again later.'
+        }
       };
       return Promise.reject(serverError);
     }
     return Promise.reject(error);
-  },
+  }
 );
 
 export {ApiClient, ApiGuestClient};

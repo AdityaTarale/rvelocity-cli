@@ -2,17 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@assets/*": [
-        "./assets/*"
-      ]
+      "@/*": ["src/*"],
+      "@assets/*": ["./assets/*"]
     }
   },
-  "include": [
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
-  ],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
   "extends": "@react-native/typescript-config/tsconfig.json"
 }

@@ -1,9 +1,4 @@
-import {
-  QueryCache,
-  QueryClient,
-  onlineManager,
-  Query,
-} from '@tanstack/react-query';
+import {QueryCache, QueryClient, onlineManager, Query} from '@tanstack/react-query';
 import {PersistQueryClientProvider} from '@tanstack/react-query-persist-client';
 import React, {FC, PropsWithChildren, useEffect} from 'react';
 import {addEventListener} from '@react-native-community/netinfo';
@@ -14,7 +9,7 @@ import {zustandStorage} from './storageManager';
 
 export const clientPersister = createSyncStoragePersister({
   storage: zustandStorage as Storage,
-  throttleTime: 3000,
+  throttleTime: 3000
 });
 
 export const queryClient = new QueryClient({
@@ -25,14 +20,14 @@ export const queryClient = new QueryClient({
       retry: 3,
       staleTime: 5 * 60 * 1000,
       gcTime: 1000 * 60 * 60 * 24, // 24 hours
-      throwOnError: true,
-    },
+      throwOnError: true
+    }
   },
   queryCache: new QueryCache({
     onError: (/* error, query */) => {
       // TODO: Use this callback to handle all error at centralized point.
-    },
-  }),
+    }
+  })
 });
 
 export const clearQueryCache = () => {
@@ -82,7 +77,7 @@ export const APIProvider: FC<PropsWithChildren> = ({children}) => {
     <PersistQueryClientProvider
       persistOptions={{
         persister: clientPersister,
-        dehydrateOptions: {shouldDehydrateQuery: persistFilter},
+        dehydrateOptions: {shouldDehydrateQuery: persistFilter}
       }}
       client={queryClient}>
       {children}
