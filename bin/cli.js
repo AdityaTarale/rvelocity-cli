@@ -32,8 +32,7 @@ program
   .option("-rn, --react-native", "Initialize a React Native project")
   .action((options) => {
     const platform = options.reactNative ? "react-native" : "react";
-    generateCommand(platform);
-    initCommand(options);
+    initCommand(platform);
   });
 
 program

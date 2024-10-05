@@ -17,6 +17,39 @@ To install `rvelocity-cli` globally, run:
 npm install -g rvelocity-cli
 ```
 
+### Usage
+
+#### init
+Use the init command to initialize setup for a new project.
+The init command installs dependencies, adds basic folder setup and installs required packages.
+
+```bash
+rc init -[options]
+```
+
+#### g
+Use the g command to generate components to your project.
+The g command generate a component file includes tsx, styles and barrel file to your project.
+
+```bash
+rc g [path] [name] -[options]
+```
+
+##### Example
+
+```bash
+rc g components Button -rn
+```
+
+This will create the following structure:
+
+```
+src/components/Button/
+  ├── Button.tsx
+  ├── styles.ts
+  └── index.ts
+```
+
 ### Documentation
 For detailed usage and command options, refer to the [CLI Documentation](./CLI.md).
 
