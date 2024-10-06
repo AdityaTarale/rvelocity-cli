@@ -1,19 +1,10 @@
+import {Theme} from '@/theme';
 import React from 'react';
-import {View, Text as RnText, TextProps as RnTextProps, StyleProp, TextStyle} from 'react-native';
+import {Text as RnText, TextProps as RnTextProps, StyleProp, TextStyle, View} from 'react-native';
 import {useStyles} from 'react-native-unistyles';
-import {Theme} from '../../theme';
-
-const fontWeightMap: Record<string, TextStyle['fontWeight']> = {
-  regular: '400',
-  medium: '500',
-  semiBold: '600',
-  bold: '700'
-};
 
 interface TextProps extends RnTextProps {
-  variant?: keyof Theme['fontWeight'];
-  size?: keyof Theme['fontSize'];
-  lineHeight?: keyof Theme['lineHeight'];
+  variant?: keyof Theme['typeFaces'];
   color?: keyof Theme['colors'];
   align?: 'left' | 'center' | 'right';
   spacing?: keyof Theme['margins'];
@@ -21,9 +12,7 @@ interface TextProps extends RnTextProps {
 
 const Text: React.FC<TextProps> = ({
   children,
-  variant = 'regular',
-  size = 16,
-  lineHeight = 0,
+  variant = 'bodyMedium',
   color = 'primary',
   align = 'left',
   spacing = 'none',
@@ -33,9 +22,6 @@ const Text: React.FC<TextProps> = ({
   const {theme} = useStyles();
 
   const textStyle: StyleProp<TextStyle> = {
-    fontSize: theme.fontSize[size],
-    fontWeight: fontWeightMap[variant] || '400',
-    lineHeight: lineHeight ? theme.lineHeight[lineHeight] : undefined,
     color: theme.colors[color],
     textAlign: align,
     letterSpacing: theme.margins[spacing] || 0
@@ -43,7 +29,9 @@ const Text: React.FC<TextProps> = ({
 
   return (
     <View>
-      <RnText style={[textStyle, style]} {...rest}>
+      <RnText
+        style={[theme.typeFaces[variant] as StyleProp<TextStyle>, textStyle, style]}
+        {...rest}>
         {children}
       </RnText>
     </View>
@@ -51,3 +39,24 @@ const Text: React.FC<TextProps> = ({
 };
 
 export default Text;
+
+/**
+ * Usage
+ * <Text variant="displayLarge">Display Large</Text>
+ * <Text variant="displayMedium">Display Medium</Text>
+ * <Text variant="displaySmall">Display Small</Text>
+ * <Text variant="headlineLarge">Headline Large</Text>
+ * <Text variant="headlineMedium">Headline Medium</Text>
+ * <Text variant="headlineSmall">Headline Small</Text>
+ * <Text variant="titleLarge">Title Large</Text>
+ * <Text variant="titleMedium">Title Medium</Text>
+ * <Text variant="titleSmall">Title Small</Text>
+ * <Text variant="bodyLarge">Body Large</Text>
+ * <Text variant="bodyMedium">Body Medium</Text>
+ * <Text variant="bodySmall">Body Small</Text>
+ * <Text variant="labelLarge">Label Large</Text>
+ * <Text variant="labelLargeProminent">Label Large Prominent</Text>
+ * <Text variant="labelMedium">Label Medium</Text>
+ * <Text variant="labelMediumProminent">Label Medium Prominent</Text>
+ * <Text variant="labelSmall">Label Small</Text>
+ */
