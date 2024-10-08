@@ -6,7 +6,7 @@ const darkPalettes = {
   black80: '#343434',
   black100: '#000000',
   warning: '#F1A33B',
-  red: '#C33B44'
+  red: '#C33B44',
 };
 
 const darkColors = {
@@ -15,7 +15,7 @@ const darkColors = {
   textPrimary: darkPalettes.white100,
   textSecondary: darkPalettes.white80,
   cardBackground: darkPalettes.black80,
-  borderColor: darkPalettes.white60
+  borderColor: darkPalettes.white60,
 };
 
 export default darkColors;

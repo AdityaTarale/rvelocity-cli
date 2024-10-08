@@ -1,6 +1,6 @@
 const queryKeys = {
   persist: ['persist'], // query key is getting added in the API call for persisting the data
-  posts: ['posts']
+  posts: ['posts'],
 };
 
 // HTTP status code
@@ -22,7 +22,7 @@ const defaultOptions = {
   isOffline: false,
   useApiGuestClient: false,
   shouldPersist: false,
-  method: 'GET'
+  method: 'GET',
 };
 
 const apiConfig = {
@@ -32,8 +32,8 @@ const apiConfig = {
     url: 'posts',
     queryKey: queryKeys.posts,
     description: 'returns posts',
-    useApiGuestClient: true
-  }
+    useApiGuestClient: true,
+  },
 };
 
 export {queryKeys, apiConfig};

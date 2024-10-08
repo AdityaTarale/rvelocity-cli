@@ -15,7 +15,7 @@ const ContentSafeView: React.FC<ContentSafeViewProps> = ({children, ...rest}) =>
     <View
       style={{
         marginHorizontal: theme.spacing[20],
-        width: dimensions.width - theme.spacing[20]
+        width: dimensions.width - theme.spacing[20],
       }}
       {...rest}>
       {children}

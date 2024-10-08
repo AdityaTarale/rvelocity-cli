@@ -19,9 +19,9 @@ const config = {
     getTransformOptions: async () => ({
       transform: {
         experimentalImportSupport: false,
-        inlineRequires: false
-      }
-    })
+        inlineRequires: false,
+      },
+    }),
   },
   resolver: {
     resolverMainFields: ['sbmodern', 'react-native', 'browser', 'main'],
@@ -30,21 +30,35 @@ const config = {
     resolveRequest: (context, moduleName, platform) => {
       const defaultResolveResult = context.resolveRequest(context, moduleName, platform);
 
-      if (defaultResolveResult?.filePath?.includes?.('./.storybook/')) {
+      if (
+        // process.env.STORYBOOK_ENABLED !== 'true' &&
+        defaultResolveResult?.filePath?.includes?.('./.storybook/')
+      ) {
         return {
-          type: 'empty'
+          type: 'empty',
         };
       }
 
       return defaultResolveResult;
-    }
+    },
   },
-  watchFolders: [path.resolve(__dirname, '..')]
+  watchFolders: [path.resolve(__dirname, '..')],
 };
 
 const finalConfig = mergeConfig(defaultConfig, config);
 
 module.exports = withStorybook(finalConfig, {
+  // Set to false to remove storybook specific options
+  // you can also use a env variable to set this
+  // enabled: process.env.STORYBOOK_ENABLED === 'true',
   enabled: true,
-  configPath: path.resolve(__dirname, './.storybook')
+  // Path to your storybook config
+  configPath: path.resolve(__dirname, './.storybook'),
+
+  // Optional websockets configuration
+  // Starts a websocket server on the specified port and host on metro start
+  // websockets: {
+  //   port: 7007,
+  //   host: 'localhost',
+  // },
 });

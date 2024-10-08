@@ -28,20 +28,20 @@ export const NetworkStatusBar = () => {
         Animated.timing(heightAnim, {
           toValue: 24,
           duration: 300,
-          useNativeDriver: false
+          useNativeDriver: false,
         }),
         Animated.delay(100),
         Animated.timing(opacityAnim, {
           toValue: 1,
           duration: 300,
-          useNativeDriver: true
-        })
+          useNativeDriver: true,
+        }),
       ]).start();
 
       Animated.timing(colorAnim, {
         toValue: 0,
         duration: 0,
-        useNativeDriver: false
+        useNativeDriver: false,
       }).start();
     } else {
       setStatusMessage('Online');
@@ -49,33 +49,33 @@ export const NetworkStatusBar = () => {
       Animated.timing(colorAnim, {
         toValue: 1,
         duration: 500,
-        useNativeDriver: false
+        useNativeDriver: false,
       }).start();
 
       Animated.sequence([
         Animated.timing(opacityAnim, {
           toValue: 1,
           duration: 200,
-          useNativeDriver: true
+          useNativeDriver: true,
         }),
         Animated.delay(1000),
         Animated.timing(opacityAnim, {
           toValue: 0,
           duration: 200,
-          useNativeDriver: true
+          useNativeDriver: true,
         }),
         Animated.timing(heightAnim, {
           toValue: 0,
           duration: 300,
-          useNativeDriver: false
-        })
+          useNativeDriver: false,
+        }),
       ]).start();
     }
   }, [isConnected, heightAnim, opacityAnim, colorAnim]);
 
   const barColor = colorAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: ['#b71c1c', '#4caf50']
+    outputRange: ['#b71c1c', '#4caf50'],
   });
 
   return (
@@ -99,12 +99,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     overflow: 'hidden',
-    zIndex: 1
+    zIndex: 1,
   },
   offlineText: {
     color: '#fff',
-    fontSize: 12
-  }
+    fontSize: 12,
+  },
 });
 
 export default NetworkStatusBar;

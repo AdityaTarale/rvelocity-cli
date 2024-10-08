@@ -9,7 +9,7 @@ export default function useDeviceOrientation() {
   const screenDimensions = Dimensions.get('screen');
   const initialState = {
     portrait: isOrientationPortrait(screenDimensions),
-    landscape: isOrientationLandscape(screenDimensions)
+    landscape: isOrientationLandscape(screenDimensions),
   };
 
   const [orientation, setOrientation] = useState(initialState);
@@ -18,7 +18,7 @@ export default function useDeviceOrientation() {
     const onChange = ({screen}: {screen: ScaledSize}) => {
       setOrientation({
         portrait: isOrientationPortrait(screen),
-        landscape: isOrientationLandscape(screen)
+        landscape: isOrientationLandscape(screen),
       });
     };
 

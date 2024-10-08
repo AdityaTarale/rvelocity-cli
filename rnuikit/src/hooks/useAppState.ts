@@ -5,7 +5,7 @@ type AppStateCallback = () => void;
 
 const useAppState = (
   callback: AppStateCallback,
-  targetAppStates: AppStateStatus[] = ['background', 'inactive']
+  targetAppStates: AppStateStatus[] = ['background', 'inactive'],
 ) => {
   useEffect(() => {
     const handleAppStateChange = (nextAppState: AppStateStatus) => {

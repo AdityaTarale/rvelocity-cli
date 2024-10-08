@@ -26,7 +26,7 @@ const spacing = {
   72: 72,
   80: 80,
   88: 88,
-  96: 96
+  96: 96,
 };
 
 export default spacing;

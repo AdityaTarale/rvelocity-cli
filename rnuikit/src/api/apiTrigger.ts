@@ -18,7 +18,7 @@ export const apiTrigger = async <T>(config: IUseAPI): Promise<T> => {
     url,
     params: queryParams,
     headers: {...customHeaders},
-    data: requestBody
+    data: requestBody,
   });
 
   return res.data;

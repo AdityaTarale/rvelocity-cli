@@ -9,14 +9,14 @@ export const darkTheme = {
   colors: darkColors,
   typeFaces,
   spacing,
-  shadows
+  shadows,
 } as const;
 
 export const lightTheme = {
   colors: lightColors,
   typeFaces,
   spacing,
-  shadows
+  shadows,
 } as const;
 
 export type Theme = typeof lightTheme;

@@ -21,7 +21,7 @@ const isTablet = (): boolean => {
 export const detectDevice: IDetectDevice = {
   isAndroid: Platform.OS === 'android',
   isIOS: Platform.OS === 'ios',
-  isTablet: isTablet()
+  isTablet: isTablet(),
 };
 
 export default detectDevice;

@@ -24,7 +24,7 @@ const Text: React.FC<TextProps> = ({
   const textStyle: StyleProp<TextStyle> = {
     color: theme.colors[color],
     textAlign: align,
-    letterSpacing: theme.margins[spacing] || 0
+    letterSpacing: theme.margins[spacing] || 0,
   };
 
   return (

@@ -1,6 +1,6 @@
 import {
   useQuery as useReactFetchQuery,
-  useMutation as useReactMutationQuery
+  useMutation as useReactMutationQuery,
 } from '@tanstack/react-query';
 import {ReactQueryGetConfig, ReactQueryMutationConfig} from '@/types/reactQueryConfig';
 import {apiTrigger} from '@/api/apiTrigger';

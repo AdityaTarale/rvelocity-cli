@@ -3,7 +3,7 @@
 module.exports = {
   project: {
     ios: {},
-    android: {}
+    android: {},
   },
-  assets: ['./assets/fonts/', './assets/icons/']
+  assets: ['./assets/fonts/', './assets/icons/'],
 };

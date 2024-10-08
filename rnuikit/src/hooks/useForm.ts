@@ -4,11 +4,11 @@ import {ZodSchema, TypeOf} from 'zod';
 
 export const useForm = <T extends ZodSchema>(
   schema: T,
-  defaultValues: DefaultValues<TypeOf<T>>
+  defaultValues: DefaultValues<TypeOf<T>>,
 ): UseFormReturn<TypeOf<T>> => {
   const formMethods = useReactHookForm<TypeOf<T>>({
     resolver: zodResolver(schema),
-    defaultValues
+    defaultValues,
   });
 
   return formMethods;

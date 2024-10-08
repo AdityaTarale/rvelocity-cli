@@ -2,7 +2,7 @@ import {
   UseQueryOptions,
   UseMutationOptions,
   QueryKey,
-  UseInfiniteQueryOptions
+  UseInfiniteQueryOptions,
 } from '@tanstack/react-query';
 import {AxiosError} from 'axios';
 import {ErrorResponse} from './api';
@@ -21,7 +21,7 @@ export interface ReactQueryGetConfig<
   TQueryFnData = unknown,
   TError = AxiosError<ErrorResponse>,
   TData = TQueryFnData,
-  TQueryKey extends QueryKey = QueryKey
+  TQueryKey extends QueryKey = QueryKey,
 > extends ReactQueryConfig,
     UseQueryOptions<TQueryFnData, TError, TData, TQueryKey> {}
 
@@ -35,7 +35,7 @@ export interface ReactQueryMutationConfig<
   TData = unknown,
   TError = AxiosError<ErrorResponse>,
   TVariables = RequestPayload,
-  TContext = unknown
+  TContext = unknown,
 > extends ReactQueryConfig,
     UseMutationOptions<TData, TError, TVariables, TContext> {}
 
@@ -45,7 +45,7 @@ export interface ReactQueryUseInfiniteQueryConfig<
   TData = TQueryFnData,
   TQueryData = TQueryFnData,
   TQueryKey extends QueryKey = QueryKey,
-  TPageParam = unknown
+  TPageParam = unknown,
 > extends ReactQueryConfig,
     UseInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey, TPageParam> {}
 

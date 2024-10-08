@@ -21,11 +21,11 @@ export type RootNavigatorScreenProps<T extends keyof RootNavigatorParamList> =
   NativeStackScreenProps<RootNavigatorParamList, T>;
 
 export type UnAuthenticatedStackNavigatorScreenProps<
-  T extends keyof UnAuthenticatedStackNavigatorParamList
+  T extends keyof UnAuthenticatedStackNavigatorParamList,
 > = NativeStackScreenProps<UnAuthenticatedStackNavigatorParamList, T>;
 
 export type AuthenticatedStackNavigatorScreenProps<
-  T extends keyof AuthenticatedStackNavigatorParamList
+  T extends keyof AuthenticatedStackNavigatorParamList,
 > = NativeStackScreenProps<AuthenticatedStackNavigatorParamList, T>;
 
 declare global {
