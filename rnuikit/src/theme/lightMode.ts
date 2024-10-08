@@ -1,14 +1,16 @@
 const lightPalettes = {
-  brand: 'brand',
-  black100: 'black100',
-  black80: 'black80',
-  black60: 'black60',
-  white80: 'white80',
-  white100: 'white100'
+  brand: '#000000',
+  black100: '#000000',
+  black80: '#9F9D9D',
+  black60: '#CECECE',
+  white80: '#EEEEEE',
+  white100: '#ffffff',
+  warning: '#F09A37',
+  danger: '#E63D43'
 };
 
 const lightColors = {
-  primary: lightPalettes.brand,
+  brand: lightPalettes.brand,
   background: lightPalettes.white100,
   textPrimary: lightPalettes.black100,
   textSecondary: lightPalettes.black80,
