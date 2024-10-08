@@ -1,19 +1,19 @@
 import {useState, useEffect} from 'react';
 import {Dimensions} from 'react-native';
 
-const useDimensions = () => {
-  const [screen, setScreen] = useState(Dimensions.get('screen'));
+const useDimensions = (type: 'window' | 'screen') => {
+  const [dimension, setDimension] = useState(Dimensions.get(type));
 
   useEffect(() => {
     const onChange = result => {
-      setScreen(result.screen);
+      setDimension(result[type]);
     };
 
     const subscription = Dimensions.addEventListener('change', onChange);
     return () => subscription?.remove();
-  }, []);
+  }, [type]);
 
-  return screen;
+  return dimension;
 };
 
 export default useDimensions;

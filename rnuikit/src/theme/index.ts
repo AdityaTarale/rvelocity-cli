@@ -1,6 +1,6 @@
 import darkColors from './darkMode';
 import lightColors from './lightMode';
-import margins from './margins';
+import spacing from './spacing';
 import shadows from './shadows';
 import typeFaces from './typography';
 export * from './breakpoints';
@@ -8,14 +8,14 @@ export * from './breakpoints';
 export const darkTheme = {
   colors: darkColors,
   typeFaces,
-  margins,
+  spacing,
   shadows
 } as const;
 
 export const lightTheme = {
   colors: lightColors,
   typeFaces,
-  margins,
+  spacing,
   shadows
 } as const;
 
