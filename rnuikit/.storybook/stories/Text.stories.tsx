@@ -1,0 +1,60 @@
+import type {Meta, StoryObj} from '@storybook/react';
+import React from 'react';
+import Text from '../../src/ui/elements/Text';
+import {decorators} from '../decorators';
+
+const variants = [
+  'displayLarge',
+  'displayMedium',
+  'displaySmall',
+  'headlineLarge',
+  'headlineMedium',
+  'headlineSmall',
+  'titleLarge',
+  'titleMedium',
+  'titleSmall',
+  'bodyLarge',
+  'bodyMedium',
+  'bodySmall',
+  'labelLarge',
+  'labelLargeProminent',
+  'labelMedium',
+  'labelMediumProminent',
+  'labelSmall',
+];
+
+const TextMeta: Meta<typeof Text> = {
+  title: 'Elements/ Text',
+  component: Text,
+  argTypes: {},
+  args: {},
+  decorators: decorators,
+};
+
+export default TextMeta;
+
+type TextStory = StoryObj<typeof Text>;
+
+const TextTemplate: TextStory = {
+  render: ({children, ...args}) => {
+    return (
+      <>
+        {variants.map((item: string, index: number) => {
+          return (
+            <Text key={index} variant={item} {...args}>
+              {children || item}
+            </Text>
+          );
+        })}
+      </>
+    );
+  },
+};
+
+export const Default = {
+  ...TextTemplate,
+};
+
+Default.args = {
+  children: '',
+};

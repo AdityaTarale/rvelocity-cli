@@ -2,16 +2,16 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import styles from './styles.ts';
 
-type SelectProps = {
+type TextFieldProps = {
   // Define props here
 };
 
-const Select: React.FC<SelectProps> = props => {
+const TextField: React.FC<TextFieldProps> = props => {
   return (
     <View style={styles.container}>
-      <Text>Select Component</Text>
+      <Text>TextField Component</Text>
     </View>
   );
 };
 
-export default Select;
+export default TextField;

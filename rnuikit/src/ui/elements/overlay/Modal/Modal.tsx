@@ -1,12 +1,12 @@
-import React from "react";
-import { View, Text } from "react-native";
-import styles from "./styles.ts";
+import React from 'react';
+import {View, Text} from 'react-native';
+import styles from './styles.ts';
 
 type ModalProps = {
   // Define props here
 };
 
-const Modal: React.FC<ModalProps> = (props) => {
+const Modal: React.FC<ModalProps> = props => {
   return (
     <View style={styles.container}>
       <Text>Modal Component</Text>

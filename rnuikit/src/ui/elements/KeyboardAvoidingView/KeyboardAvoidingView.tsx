@@ -1,16 +1,30 @@
-import React from "react";
-import { View, Text } from "react-native";
-import styles from "./styles.ts";
+import React, {type FC, type PropsWithChildren, type ReactElement} from 'react';
+import {
+  KeyboardAvoidingView as RNKeyboardAvoidingView,
+  type KeyboardAvoidingViewProps as RNKeyboardAvoidingViewProps,
+} from 'react-native';
 
-type KeyboardAvoidingViewProps = {
-  // Define props here
+import {detectDevice} from '@/utils';
+import styles from './styles';
+
+type KeyboardAvoidingViewProps = PropsWithChildren & {
+  keyboardOffset?: number;
+  KeyboardAvoidingViewProps?: RNKeyboardAvoidingViewProps;
 };
 
-const KeyboardAvoidingView: React.FC<KeyboardAvoidingViewProps> = (props) => {
+export const KeyboardAvoidingView: FC<KeyboardAvoidingViewProps> = ({
+  children,
+  keyboardOffset = 0,
+  KeyboardAvoidingViewProps,
+}): ReactElement => {
   return (
-    <View style={styles.container}>
-      <Text>KeyboardAvoidingView Component</Text>
-    </View>
+    <RNKeyboardAvoidingView
+      behavior={detectDevice.isIOS ? 'padding' : 'height'}
+      keyboardVerticalOffset={keyboardOffset}
+      {...KeyboardAvoidingViewProps}
+      style={[styles.keyboardAvoidingViewStyle, KeyboardAvoidingViewProps?.style]}>
+      {children}
+    </RNKeyboardAvoidingView>
   );
 };
 

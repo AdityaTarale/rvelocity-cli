@@ -1,1 +1,1 @@
-export { default } from './VectorIcon';
+export {default} from './VectorIcon';

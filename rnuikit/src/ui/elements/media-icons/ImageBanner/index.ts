@@ -1,1 +1,1 @@
-export { default } from './ImageBanner';
+export {default} from './ImageBanner';
