@@ -15,7 +15,7 @@ function App() {
 let AppEntryPoint = App;
 
 /* if (process.env.STORYBOOK_ENABLED) {
-  AppEntryPoint = require('../.storybook').default;
-} */
+  } */
+AppEntryPoint = require('../.storybook').default;
 
 export default AppEntryPoint;
