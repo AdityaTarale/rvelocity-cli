@@ -1,7 +1,7 @@
-import {Theme} from '@/theme';
+import { Theme } from '@/theme';
 import React from 'react';
-import {Text as RnText, TextProps as RnTextProps, StyleProp, TextStyle, View} from 'react-native';
-import {useStyles} from 'react-native-unistyles';
+import { Text as RnText, TextProps as RnTextProps, StyleProp, TextStyle, View } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
 
 interface TextProps extends RnTextProps {
   variant?: keyof Theme['typeFaces'];
@@ -15,16 +15,16 @@ const Text: React.FC<TextProps> = ({
   variant = 'bodyMedium',
   color = 'textPrimary',
   align = 'left',
-  spacing = 'none',
+  spacing = 0,
   style,
   ...rest
 }) => {
-  const {theme} = useStyles();
+  const { theme } = useStyles();
 
   const textStyle: StyleProp<TextStyle> = {
-    color: theme.colors[color],
+    color: theme.colors[color as keyof typeof theme.colors],
     textAlign: align,
-    letterSpacing: theme.spacing['0'] || 0,
+    letterSpacing: theme.spacing[spacing] || 0,
   };
 
   return (

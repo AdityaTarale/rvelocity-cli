@@ -115,6 +115,7 @@ function initReactNativeProject(projectRoot) {
     "react-native-safe-area-context",
     "@react-navigation/native-stack",
     "date-fns",
+    "lottie-react-native",
   ];
   const devDependencies = [
     "babel-plugin-module-resolver",

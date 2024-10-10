@@ -1,9 +1,10 @@
-import {StyleSheet} from 'react-native';
+import { createStyleSheet } from 'react-native-unistyles';
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+const stylesheet = createStyleSheet(theme => ({
+  image: {
+    height: '100%',
+    width: '100%',
   },
-});
+}));
+
+export default stylesheet;

@@ -1,11 +1,11 @@
-import {View} from 'react-native';
+import { View } from 'react-native';
 import React from 'react';
 
 export const decorators = [
   Story => (
     <View
       style={{
-        flex: 1,
+        padding: 16,
         justifyContent: 'center',
         alignItems: 'center',
       }}>

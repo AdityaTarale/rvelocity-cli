@@ -1,7 +1,7 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import Text from '../../src/ui/elements/Text';
-import {decorators} from '../decorators';
+import { decorators } from '../decorators';
 
 const variants = [
   'displayLarge',
@@ -23,20 +23,27 @@ const variants = [
   'labelSmall',
 ];
 
-const TextMeta: Meta<typeof Text> = {
+const TextMeta = {
   title: 'Elements/ Text',
   component: Text,
   argTypes: {},
   args: {},
   decorators: decorators,
-};
+  parameters: {
+    notes: `
+     # Here I can add some markdown
+     
+     Put a full new line between each element.
+    `,
+  },
+} satisfies Meta<typeof Text>;
 
 export default TextMeta;
 
 type TextStory = StoryObj<typeof Text>;
 
 const TextTemplate: TextStory = {
-  render: ({children, ...args}) => {
+  render: ({ children, ...args }) => {
     return (
       <>
         {variants.map((item: string, index: number) => {

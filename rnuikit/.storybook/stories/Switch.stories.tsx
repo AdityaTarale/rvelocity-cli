@@ -1,14 +1,14 @@
-import type {Meta, StoryObj} from '@storybook/react';
-import React, {useState} from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
 import Switch from '../../src/ui/elements/forms/Switch';
-import {decorators} from '../decorators';
+import { decorators } from '../decorators';
 
-const SwitchMeta: Meta<typeof Switch> = {
+const SwitchMeta = {
   title: 'Elements/Forms/Switch',
   component: Switch,
   argTypes: {
     value: {
-      control: {type: 'boolean'},
+      control: { type: 'boolean' },
     },
     onValueChange: {
       action: 'changed',
@@ -18,7 +18,7 @@ const SwitchMeta: Meta<typeof Switch> = {
     value: false,
   },
   decorators: decorators,
-};
+} satisfies Meta<typeof Switch>;
 
 export default SwitchMeta;
 

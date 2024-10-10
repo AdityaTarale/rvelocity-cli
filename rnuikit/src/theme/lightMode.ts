@@ -16,6 +16,8 @@ const lightColors = {
   textSecondary: lightPalettes.black80,
   cardBackground: lightPalettes.white80,
   borderColor: lightPalettes.black60,
+  warning: lightPalettes.warning,
+  danger: lightPalettes.danger,
 };
 
 export default lightColors;

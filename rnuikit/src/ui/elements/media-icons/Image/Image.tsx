@@ -1,16 +1,30 @@
-import React from 'react';
-import {View, Text} from 'react-native';
-import styles from './styles.ts';
+import { getImage, type Image as ImageType } from '@assets/constants/images';
+import React, { type FC, type ReactElement } from 'react';
+import {
+  type ImageSourcePropType,
+  Image as RNImage,
+  type ImageProps as RNImageProps,
+} from 'react-native';
+import { useStyles } from 'react-native-unistyles';
+import { IconProps } from '../Icon/Icon';
+import stylesheet from './styles';
 
-type ImageProps = {
-  // Define props here
-};
+export type ImageProps = Omit<RNImageProps, 'source'> &
+  Omit<IconProps, 'variant' | 'icon'> & {
+    image: ImageType | string;
+    remote?: boolean;
+  };
 
-const Image: React.FC<ImageProps> = props => {
+export const Image: FC<ImageProps> = ({ image, remote = false, ...rest }): ReactElement => {
+  const { styles } = useStyles(stylesheet);
+
   return (
-    <View style={styles.container}>
-      <Text>Image Component</Text>
-    </View>
+    <RNImage
+      source={remote ? { uri: image } : (getImage(image as ImageType) as ImageSourcePropType)}
+      resizeMode="cover"
+      style={styles.image}
+      {...rest}
+    />
   );
 };
 
