@@ -1,23 +1,14 @@
-const darkPalettes = {
-  brand: '#ffffff',
-  white100: '#ffffff',
-  white80: '#8F8F93',
-  white60: '#636363',
-  black80: '#343434',
-  black100: '#000000',
-  warning: '#F1A33B',
-  danger: '#C33B44',
-};
-
 const darkColors = {
-  primary: darkPalettes.brand,
-  background: darkPalettes.black100,
-  textPrimary: darkPalettes.white100,
-  textSecondary: darkPalettes.white80,
-  cardBackground: darkPalettes.black80,
-  borderColor: darkPalettes.white60,
-  warning: darkPalettes.warning,
-  danger: darkPalettes.danger,
+  primary: '#FFFFFF',
+  secondary: '#C9CED0',
+  background: '#212121',
+  text: '#F1F2F2',
+  error: '#D32F2F',
+  success: '#70B943',
+  warning: '#FFC107',
+  gray: '#838C95',
+  darkGray: '#939393',
+  white: '#111111',
 };
 
 export default darkColors;
