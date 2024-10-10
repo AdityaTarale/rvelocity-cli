@@ -1,7 +1,7 @@
 // export const animation = require('../animations/animation.json');
 
 export const animations = {
-  //   animation,
+  mobileConnecting: '',
 };
 
 export type Animation = keyof typeof animations;

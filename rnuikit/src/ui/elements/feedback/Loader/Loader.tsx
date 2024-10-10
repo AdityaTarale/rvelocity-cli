@@ -1,15 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import styles from './styles.ts';
+import { type ActivityIndicatorProps, StyleSheet, View } from 'react-native';
 
-type LoaderProps = {
-  // Define props here
-};
+import { useStyles } from 'react-native-unistyles';
+import LottieElement from '../LottieElement';
+import stylesheet from './styles';
 
-const Loader: React.FC<LoaderProps> = props => {
+type LoaderProps = ActivityIndicatorProps;
+
+export const Loader: React.FC<LoaderProps> = ({ ...rest }) => {
+  const { styles } = useStyles(stylesheet);
+
   return (
-    <View style={styles.container}>
-      <Text>Loader Component</Text>
+    <View style={[StyleSheet.absoluteFill, styles.container]} {...rest}>
+      <LottieElement animation="mobileConnecting" description="Connecting you to the world..." />
     </View>
   );
 };

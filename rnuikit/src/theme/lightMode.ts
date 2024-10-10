@@ -1,6 +1,6 @@
 const lightColors = {
   primary: '#212121',
-  secondary: '#F2F2F3',
+  secondary: '#C9CED0',
   background: '#F1F2F2',
   text: '#111111',
   error: '#D32F2F',
@@ -12,4 +12,3 @@ const lightColors = {
 };
 
 export default lightColors;
-// C9CED0;

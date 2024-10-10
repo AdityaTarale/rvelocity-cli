@@ -73,10 +73,10 @@ const stylesheet = createStyleSheet(theme => ({
     color: theme.colors.primary,
   },
   secondaryOutlined: {
-    color: theme.colors.secondary,
+    color: theme.colors.darkGray,
   },
   secondaryText: {
-    color: theme.colors.secondary,
+    color: theme.colors.darkGray,
   },
 
   // Button text sizes

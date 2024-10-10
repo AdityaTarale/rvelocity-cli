@@ -1,11 +1,12 @@
 import { createStyleSheet } from 'react-native-unistyles';
 
 const stylesheet = createStyleSheet(theme => ({
+  animation: { height: theme.spacing[156], width: theme.spacing[156] },
   container: {
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.colors.background,
-    zIndex: 50,
+    justifyContent: 'center',
+    padding: theme.spacing[20],
+    zIndex: theme.spacing[50],
   },
 }));
 
