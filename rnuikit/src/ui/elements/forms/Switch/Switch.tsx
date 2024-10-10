@@ -38,7 +38,7 @@ const Switch: React.FC<SwitchProps> = ({ value, onValueChange }) => {
 
   const backgroundColorInterpolation = animation.interpolate({
     inputRange: [0, 1],
-    outputRange: [theme.colors.borderColor, theme.colors.textPrimary],
+    outputRange: [theme.colors.secondary, theme.colors.primary],
   });
 
   return (
