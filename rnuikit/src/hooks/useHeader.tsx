@@ -1,5 +1,5 @@
-import React, {type ReactElement, useEffect, type useLayoutEffect} from 'react';
-import {useNavigation} from '@react-navigation/native';
+import React, { type ReactElement, useEffect, type useLayoutEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 export const useHeader = (
   header: () => ReactElement,

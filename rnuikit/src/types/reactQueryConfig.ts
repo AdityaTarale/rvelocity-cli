@@ -4,8 +4,8 @@ import {
   QueryKey,
   UseInfiniteQueryOptions,
 } from '@tanstack/react-query';
-import {AxiosError} from 'axios';
-import {ErrorResponse} from './api';
+import { AxiosError } from 'axios';
+import { ErrorResponse } from './api';
 
 export interface ReactQueryConfig {
   url: string;

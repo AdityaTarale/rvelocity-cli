@@ -1,5 +1,5 @@
-import {FC} from 'react';
-import {SvgProps} from 'react-native-svg';
+import { FC } from 'react';
+import { SvgProps } from 'react-native-svg';
 
 // import icon from '../icons/icon.svg';
 

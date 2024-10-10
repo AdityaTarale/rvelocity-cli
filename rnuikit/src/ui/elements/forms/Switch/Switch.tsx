@@ -1,6 +1,6 @@
-import React, {useEffect, useRef} from 'react';
-import {Animated, TouchableWithoutFeedback} from 'react-native';
-import {useStyles} from 'react-native-unistyles';
+import React, { useEffect, useRef } from 'react';
+import { Animated, TouchableWithoutFeedback } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles';
 
 type SwitchProps = {
@@ -8,10 +8,10 @@ type SwitchProps = {
   onValueChange: (value: boolean) => void;
 };
 
-const Switch: React.FC<SwitchProps> = ({value, onValueChange}) => {
+const Switch: React.FC<SwitchProps> = ({ value, onValueChange }) => {
   const animation = useRef(new Animated.Value(value ? 1 : 0)).current;
 
-  const {styles, theme} = useStyles(stylesheet);
+  const { styles, theme } = useStyles(stylesheet);
 
   const toggleSwitch = () => {
     const newValue = !value;
@@ -53,7 +53,7 @@ const Switch: React.FC<SwitchProps> = ({value, onValueChange}) => {
         <Animated.View
           style={[
             {
-              transform: [{translateX: switchInterpolation}],
+              transform: [{ translateX: switchInterpolation }],
             },
             styles.circle,
           ]}
