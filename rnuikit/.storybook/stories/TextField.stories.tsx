@@ -4,7 +4,7 @@ import TextField from '../../src/ui/elements/forms/TextField';
 
 import { decorators } from '../decorators';
 
-const TextFieldMeta = {
+const meta = {
   title: 'Elements/Forms/Text Field',
   component: TextField,
   argTypes: {
@@ -35,15 +35,16 @@ const TextFieldMeta = {
   decorators: decorators,
 } satisfies Meta<typeof TextField>;
 
-export default TextFieldMeta;
-type TextFieldStory = StoryObj<typeof TextField>;
+export default meta;
 
-const TextFieldTemplate: TextFieldStory = {
+type Story = StoryObj<typeof TextField>;
+
+const TextFieldTemplate: Story = {
   render: ({ ...args }) => {
     return <TextField {...args}>{args.children}</TextField>;
   },
 };
 
-export const Default: TextFieldStory = {
+export const Default: Story = {
   ...TextFieldTemplate,
 };

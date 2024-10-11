@@ -6,7 +6,7 @@ import IconButton from '../../src/ui/elements/media-icons/IconButton/IconButton.
 
 const variants = ['contained', 'outlined', 'defaults'];
 
-const IconButtonMeta: Meta<typeof IconButton> = {
+const meta = {
   title: 'Elements/Media Icons/IconButton',
   component: IconButton,
   argTypes: {
@@ -23,19 +23,19 @@ const IconButtonMeta: Meta<typeof IconButton> = {
     ...IconMeta.args,
   },
   decorators: decorators,
-};
+} satisfies Meta<typeof IconButton>;
 
-export default IconButtonMeta;
+export default meta;
 
-type IconButtonStory = StoryObj<typeof IconButton>;
+type Story = StoryObj<typeof IconButton>;
 
-const IconButtonTemplate: IconButtonStory = {
+const IconButtonTemplate: Story = {
   render: ({ ...args }) => {
     return <IconButton {...args} />;
   },
 };
 
-export const Image: StoryObj<typeof IconButton> = {
+export const Image: Story = {
   ...IconButtonTemplate,
   args: {
     variant: 'image',
@@ -43,7 +43,7 @@ export const Image: StoryObj<typeof IconButton> = {
   },
 };
 
-export const Vector: StoryObj<typeof IconButton> = {
+export const Vector: Story = {
   ...IconButtonTemplate,
   argTypes: {
     type: {
@@ -73,7 +73,7 @@ export const Vector: StoryObj<typeof IconButton> = {
   },
 };
 
-export const Svg: StoryObj<typeof IconButton> = {
+export const Svg: Story = {
   ...IconButtonTemplate,
   args: {
     variant: 'svg',

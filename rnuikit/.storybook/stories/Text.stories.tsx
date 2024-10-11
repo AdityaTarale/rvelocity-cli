@@ -23,7 +23,7 @@ const variants = [
   'labelSmall',
 ];
 
-const TextMeta = {
+const meta = {
   title: 'Elements/ Text',
   component: Text,
   argTypes: {},
@@ -38,11 +38,11 @@ const TextMeta = {
   },
 } satisfies Meta<typeof Text>;
 
-export default TextMeta;
+export default meta;
 
-type TextStory = StoryObj<typeof Text>;
+type Story = StoryObj<typeof Text>;
 
-const TextTemplate: TextStory = {
+const TextTemplate: Story = {
   render: ({ children, ...args }) => {
     return (
       <>

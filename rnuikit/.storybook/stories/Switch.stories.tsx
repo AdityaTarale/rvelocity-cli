@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Switch from '../../src/ui/elements/forms/Switch';
 import { decorators } from '../decorators';
 
-const SwitchMeta = {
+const meta = {
   title: 'Elements/Forms/Switch',
   component: Switch,
   argTypes: {
@@ -20,11 +20,11 @@ const SwitchMeta = {
   decorators: decorators,
 } satisfies Meta<typeof Switch>;
 
-export default SwitchMeta;
+export default meta;
 
-type SwitchStory = StoryObj<typeof Switch>;
+type Story = StoryObj<typeof Switch>;
 
-const SwitchTemplate: SwitchStory = {
+const SwitchTemplate: Story = {
   render: args => {
     const [isEnabled, setIsEnabled] = useState(args.value);
 
@@ -41,7 +41,7 @@ export const Default = {
   ...SwitchTemplate,
 };
 
-export const Enabled: SwitchStory = {
+export const Enabled: Story = {
   ...SwitchTemplate,
   args: {
     value: true,

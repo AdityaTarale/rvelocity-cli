@@ -9,7 +9,7 @@ const options = [
   72, 80, 88, 96, 156,
 ];
 
-const ShimmerMeta = {
+const meta = {
   title: 'Elements/Feedback/Shimmer',
   component: Shimmer,
   argTypes: {
@@ -28,15 +28,16 @@ const ShimmerMeta = {
   decorators: decorators,
 } satisfies Meta<typeof Shimmer>;
 
-export default ShimmerMeta;
-type ShimmerStory = StoryObj<typeof Shimmer>;
+export default meta;
 
-const ShimmerTemplate: ShimmerStory = {
+type Story = StoryObj<typeof Shimmer>;
+
+const ShimmerTemplate: Story = {
   render: ({ ...args }) => {
     return <Shimmer {...args} />;
   },
 };
 
-export const Default: ShimmerStory = {
+export const Default: Story = {
   ...ShimmerTemplate,
 };
