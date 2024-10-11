@@ -1,6 +1,6 @@
 import NetInfo from '@react-native-community/netinfo';
-import React, {useEffect, useRef, useState} from 'react';
-import {Animated, StatusBar, StyleSheet} from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Animated, StatusBar, StyleSheet } from 'react-native';
 
 export const NetworkStatusBar = () => {
   const [isConnected, setIsConnected] = useState(true);
@@ -85,8 +85,8 @@ export const NetworkStatusBar = () => {
         backgroundColor={isConnected ? '#fff' : '#b71c1c'}
       />
       <Animated.View
-        style={[styles.offlineContainer, {height: heightAnim, backgroundColor: barColor}]}>
-        <Animated.Text style={[styles.offlineText, {opacity: opacityAnim}]}>
+        style={[styles.offlineContainer, { height: heightAnim, backgroundColor: barColor }]}>
+        <Animated.Text style={[styles.offlineText, { opacity: opacityAnim }]}>
           {statusMessage}
         </Animated.Text>
       </Animated.View>

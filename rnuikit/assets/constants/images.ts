@@ -1,7 +1,7 @@
-// export const image = require('../images/image.png');
+export const avatar = require('../images/avatar.png');
 
 export const images = {
-  //   image,
+  avatar,
 };
 
 export type Image = keyof typeof images;

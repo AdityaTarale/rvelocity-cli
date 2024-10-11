@@ -1,9 +1,11 @@
-import {StyleSheet} from 'react-native';
+import { createStyleSheet } from 'react-native-unistyles';
 
-export default StyleSheet.create({
+const stylesheet = createStyleSheet(theme => ({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 8, // Add some border radius for a button-like appearance
   },
-});
+}));
+
+export default stylesheet;

@@ -1,1 +1,1 @@
-export {default} from './OtpField';
+export { default } from './OtpField';

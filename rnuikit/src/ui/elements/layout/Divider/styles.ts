@@ -1,9 +1,21 @@
-import {StyleSheet} from 'react-native';
+import { createStyleSheet } from 'react-native-unistyles';
 
-export default StyleSheet.create({
+const stylesheet = createStyleSheet(theme => ({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: '100%',
+    borderColor: theme.colors.secondary,
   },
-});
+  line: {
+    borderTopWidth: 1,
+  },
+  dotted: {
+    borderTopWidth: 1,
+    borderStyle: 'dotted',
+  },
+  dashed: {
+    borderTopWidth: 1,
+    borderStyle: 'dashed',
+  },
+}));
+
+export default stylesheet;

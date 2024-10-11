@@ -6,7 +6,7 @@ const stylesheet = createStyleSheet(theme => ({
     overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.colors.textPrimary,
+    backgroundColor: theme.colors.primary,
   },
   groupContainer: {
     flexDirection: 'row',

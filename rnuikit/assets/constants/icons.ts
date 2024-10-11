@@ -1,10 +1,10 @@
-import {FC} from 'react';
-import {SvgProps} from 'react-native-svg';
+import { FC } from 'react';
+import { SvgProps } from 'react-native-svg';
 
-// import icon from '../icons/icon.svg';
+import menu from '../icons/menu.svg';
 
 export const icons = {
-  //   icon,
+  menu,
 };
 
 export type Icon = keyof typeof icons;

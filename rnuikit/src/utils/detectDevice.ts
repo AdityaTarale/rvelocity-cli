@@ -1,4 +1,4 @@
-import {Dimensions, PixelRatio, Platform} from 'react-native';
+import { Dimensions, PixelRatio, Platform } from 'react-native';
 
 export interface IDetectDevice {
   isAndroid: boolean;
@@ -6,7 +6,7 @@ export interface IDetectDevice {
   isTablet: boolean;
 }
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 const isTablet = (): boolean => {
   const pixelDensity = PixelRatio.get();

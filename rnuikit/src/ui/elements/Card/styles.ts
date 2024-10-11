@@ -12,17 +12,17 @@ const stylesheet = createStyleSheet(theme => ({
 
   // Card type
   contained: {
-    backgroundColor: theme.colors.textPrimary,
-    borderColor: theme.colors.textPrimary,
+    backgroundColor: theme.colors.primary,
+    borderColor: theme.colors.primary,
   },
   outlined: {
     borderWidth: 0.2,
     backgroundColor: 'transparent',
-    borderColor: theme.colors.textSecondary,
+    borderColor: theme.colors.secondary,
   },
   elevated: {
-    backgroundColor: theme.colors.cardBackground,
-    shadowColor: theme.colors.textPrimary,
+    backgroundColor: theme.colors.background,
+    shadowColor: theme.colors.primary,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -50,28 +50,28 @@ const stylesheet = createStyleSheet(theme => ({
   OutlinedHeader: {
     fontSize: 20,
     fontWeight: 900,
-    color: theme.colors.textPrimary,
+    color: theme.colors.primary,
   },
   ContainedHeader: {
     fontSize: 20,
     fontWeight: 900,
-    color: theme.colors.cardBackground,
+    color: theme.colors.background,
   },
   ElevatedHeader: {
     fontSize: 20,
     fontWeight: 900,
-    color: theme.colors.textPrimary,
+    color: theme.colors.primary,
   },
 
   // Content variants
   OutlinedContent: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.primary,
   },
   ContainedContent: {
-    color: theme.colors.textSecondary,
+    color: theme.colors.secondary,
   },
   ElevatedContent: {
-    color: theme.colors.textSecondary,
+    color: theme.colors.secondary,
   },
 
   // Header fonts
@@ -132,7 +132,7 @@ const stylesheet = createStyleSheet(theme => ({
   },
   ElevatedFooter: {
     padding: theme.spacing[8],
-    backgroundColor: theme.colors.textPrimary,
+    backgroundColor: theme.colors.primary,
     borderRadius: 7,
     fontWeight: '700',
   },

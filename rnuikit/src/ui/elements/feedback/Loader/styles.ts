@@ -1,9 +1,12 @@
-import {StyleSheet} from 'react-native';
+import { createStyleSheet } from 'react-native-unistyles';
 
-export default StyleSheet.create({
+const stylesheet = createStyleSheet(theme => ({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: theme.colors.background,
+    zIndex: 50,
   },
-});
+}));
+
+export default stylesheet;

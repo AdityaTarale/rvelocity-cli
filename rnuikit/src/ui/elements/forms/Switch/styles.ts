@@ -1,4 +1,4 @@
-import {createStyleSheet} from 'react-native-unistyles';
+import { createStyleSheet } from 'react-native-unistyles';
 
 export default createStyleSheet(theme => ({
   container: {

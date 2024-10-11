@@ -8,6 +8,7 @@ const stylesheet = createStyleSheet(theme => ({
     justifyContent: 'center',
     width: '100%',
   },
+
   // Button type
   contained: {
     borderWidth: 1,
@@ -20,24 +21,29 @@ const stylesheet = createStyleSheet(theme => ({
     backgroundColor: 'transparent',
     borderColor: 'transparent',
   },
+
   // Button type disabled state
   containedDisabled: {
-    backgroundColor: theme.colors.textSecondary,
+    backgroundColor: theme.colors.darkGray,
     borderWidth: 0,
   },
   outlinedDisabled: {
-    borderColor: theme.colors.textSecondary,
+    borderColor: theme.colors.darkGray,
   },
-  textDisabled: {},
+  textDisabled: {
+    // color: theme.colors.darkGray,
+  },
+
   // Button variants
   primary: {
-    backgroundColor: theme.colors.textPrimary,
-    borderColor: theme.colors.textPrimary,
+    backgroundColor: theme.colors.primary,
+    borderColor: theme.colors.primary,
   },
   secondary: {
-    backgroundColor: theme.colors.textSecondary,
-    borderColor: theme.colors.textSecondary,
+    backgroundColor: theme.colors.secondary,
+    borderColor: theme.colors.secondary,
   },
+
   // Button Sizes
   sm: {
     height: 32,
@@ -51,37 +57,43 @@ const stylesheet = createStyleSheet(theme => ({
     height: 56,
     borderRadius: 4,
   },
+
   // Button text variants type
   primaryContained: {
-    color: 'white',
+    color: theme.colors.white,
   },
   primaryOutlined: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.primary,
   },
   primaryText: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.primary,
   },
+
   secondaryContained: {
-    color: 'white',
+    color: theme.colors.primary,
   },
   secondaryOutlined: {
-    color: theme.colors.textSecondary,
+    color: theme.colors.darkGray,
   },
   secondaryText: {
-    color: theme.colors.textSecondary,
+    color: theme.colors.darkGray,
   },
+
   // Button text sizes
   smText: {
     fontSize: 12,
+    fontWeight: '500',
   },
   mdText: {
     fontSize: 14,
+    fontWeight: '500',
   },
   lgText: {
     fontSize: 16,
+    fontWeight: '500',
   },
   disabledText: {
-    color: theme.colors.textSecondary,
+    color: theme.colors.secondary,
   },
 }));
 

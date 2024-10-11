@@ -1,10 +1,10 @@
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationProps, RootNavigatorParamList} from '@/types/navigation';
-import {AuthenticatedNavigator} from './AuthenticatedNavigator';
-import {UnAuthenticatedNavigator} from './UnAuthenticatedNavigator';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationProps, RootNavigatorParamList } from '@/types/navigation';
+import { AuthenticatedNavigator } from './AuthenticatedNavigator';
+import { UnAuthenticatedNavigator } from './UnAuthenticatedNavigator';
 
 export const Stack = createNativeStackNavigator<RootNavigatorParamList>();
 
@@ -13,7 +13,7 @@ export const Navigator = (props: NavigationProps) => {
 
   return (
     <NavigationContainer {...props}>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         {isLoggedIn ? (
           <Stack.Screen name="AuthenticatedStack" component={AuthenticatedNavigator} />
         ) : (

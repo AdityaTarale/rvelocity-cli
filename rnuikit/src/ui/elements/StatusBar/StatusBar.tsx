@@ -1,17 +1,13 @@
+import { Theme } from '@/theme';
 import React from 'react';
-import {View, Text} from 'react-native';
-import styles from './styles.ts';
+import { StatusBar as RNStatusBar, type StatusBarProps as RNStatusBarProps } from 'react-native';
 
-type StatusBarProps = {
-  // Define props here
-};
+interface StatusBarProps extends Omit<RNStatusBarProps, 'backgroundColor'> {
+  backgroundColor?: keyof Theme['colors'];
+}
 
 const StatusBar: React.FC<StatusBarProps> = props => {
-  return (
-    <View style={styles.container}>
-      <Text>StatusBar Component</Text>
-    </View>
-  );
+  return <RNStatusBar {...props} />;
 };
 
 export default StatusBar;

@@ -1,8 +1,8 @@
-import {initReactI18next} from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 import i18next from 'i18next';
 
 // import { getLocales } from 'react-native-localize';
-import {en} from './localize';
+import { en } from './localize';
 
 i18next.use(initReactI18next).init({
   compatibilityJSON: 'v3',
@@ -30,4 +30,4 @@ const translate = (key: string): string => {
   return i18next.t(key);
 };
 
-export {i18next, translate};
+export { i18next, translate };

@@ -1,1 +1,1 @@
-export {default} from './ContentSafeView';
+export { default } from './ContentSafeView';

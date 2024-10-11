@@ -1,1 +1,1 @@
-export {default} from './KeyboardAvoidingView';
+export { default } from './KeyboardAvoidingView';
