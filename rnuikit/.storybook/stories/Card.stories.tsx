@@ -2,17 +2,20 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import Card from '../../src/ui/elements/Card/Card';
 import { decorators } from '../decorators';
+import { Text } from 'react-native';
 
 const meta = {
   title: 'Elements/Card',
   component: Card,
   argTypes: {
-    type: {
-      control: { type: 'radio' },
-      options: ['contained', 'outlined', 'elevated'],
-    }
+    variant: {
+      control: { type: 'select' },
+      options: ['contained', 'outlined', 'elevated', 'transparent'],
+    },
   },
-  args: {},
+  args: {
+    variant: 'contained',
+  },
   decorators: decorators,
 } satisfies Meta<typeof Card>;
 
@@ -23,14 +26,13 @@ type Story = StoryObj<typeof Card>;
 const CardTemplate: Story = {
   render: args => (
     <Card {...args}>
-      <Card.Image
-        source={{
-          uri: 'https://i.ibb.co.com/p1hKNM6/stockvault-fast-internet-means-high-speed-and-accelerated224565.jpg',
-        }}
-      />
-      <Card.Header title="Card Header" />
-      <Card.Content content="Card Content" />
-      <Card.Footer action="Action" />
+      <Card.Title title="Card Header" />
+      <Card.Content>
+        <Text>Card Content</Text>
+      </Card.Content>
+      <Card.Actions>
+        <Text>Card Actions</Text>
+      </Card.Actions>
     </Card>
   ),
 };
@@ -38,20 +40,20 @@ const CardTemplate: Story = {
 export const Outlined: Story = {
   ...CardTemplate,
   args: {
-    type: 'outlined',
+    variant: 'outlined',
   },
 };
 
 export const Contained: Story = {
   ...CardTemplate,
   args: {
-    type: 'contained',
+    variant: 'contained',
   },
 };
 
 export const Elevated: Story = {
   ...CardTemplate,
   args: {
-    type: 'elevated',
+    variant: 'elevated',
   },
 };

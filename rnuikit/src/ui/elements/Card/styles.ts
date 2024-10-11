@@ -1,75 +1,41 @@
 import { createStyleSheet } from 'react-native-unistyles';
 
 const stylesheet = createStyleSheet(theme => ({
-  flex: {
-    flexDirection: 'column',
-    gap: 8,
-    width: '100%',
-    height: 'auto',
-    borderRadius: 7,
-    padding: theme.spacing[16],
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    color: theme.colors.darkGray,
+  cardBase: {
+    padding: 12,
+    borderRadius: 10,
   },
-
-  // Card type
+  transparent: {
+    backgroundColor: 'transparent',
+    shadowColor: 'transparent',
+  },
   contained: {
     backgroundColor: theme.colors.secondary,
   },
   outlined: {
-    borderWidth: 0.4,
-    backgroundColor: 'transparent',
+    backgroundColor: theme.colors.white,
+    borderWidth: 1,
     borderColor: theme.colors.secondary,
   },
   elevated: {
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.white,
     shadowColor: theme.colors.primary,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
     elevation: 5,
   },
-
-  header: {
-    fontSize: 20,
-    fontWeight: 900,
+  titleContainer: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
   },
-
-  content: {
-    fontSize: 15,
+  contentContainer: {
+    padding: 16,
   },
-
-  // Image
-  image: {
-    width: '100%',
-    height: 200,
-    borderRadius: 7,
-  },
-
-  // Footer
-  footerParent: {
-    width: '100%',
-    display: 'flex',
+  actionsContainer: {
+    padding: 16,
+    flexDirection: 'row',
     justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-  },
-
-  footerRight: {
-    width: '40%',
-    alignItems: 'center',
-  },
-
-  footer: {
-    fontWeight: '700',
-    borderRadius: 7,
-    fontSize: 15,
-    padding: theme.spacing[8],
-    color: theme.colors.white,
-    backgroundColor: theme.colors.primary,
   },
 }));
 

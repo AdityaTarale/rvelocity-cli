@@ -1,101 +1,55 @@
-import React, { createContext, ReactElement, ReactNode, useContext, useMemo } from 'react';
-import { View, Text, ImageSourcePropType, Image, ViewStyle } from 'react-native';
+import React, { type PropsWithChildren, type ReactElement } from 'react';
+import { View, ViewStyle } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles';
-import Button from '../forms/Button';
+import Text from '../Text';
 
-const CardTypes = {
-  contained: 'Contained',
-  outlined: 'Outlined',
-  elevated: 'Elevated',
+type CardProps = PropsWithChildren & {
+  variant?: 'contained' | 'outlined' | 'elevated' | 'transparent';
+  style?: ViewStyle;
 };
 
-interface CardProps {
-  children: ReactNode;
-  type: keyof typeof CardTypes;
-}
-
-interface CardHeaderProps {
+type CardTitleProps = {
   title: string;
-}
-
-interface CardContentProps {
-  content: string;
-}
-
-interface CardImageProps {
-  source: ImageSourcePropType;
-}
-
-interface CardFooterProps {
-  action: string;
-}
-
-type CardContextType = {
-  type: keyof typeof CardTypes;
 };
 
-const CardContext = createContext<CardContextType>({
-  type: 'contained',
-});
-
-const { Provider } = CardContext;
-
-const Card = ({ children, type, ...rest }: CardProps): ReactElement => {
-  const { styles } = useStyles(stylesheet);
-
-  const memorizedValue = useMemo(
-    () => ({
-      type,
-
-    }),
-    [type],
-  );
-
-  return (
-    <Provider value={memorizedValue}>
-      <View style={[styles.flex, styles[type]]} {...rest}>
-        {children}
-      </View>
-    </Provider>
-  );
-};
-
-const CardHeader = ({ title }: CardHeaderProps) => {
-  const { styles } = useStyles(stylesheet);
-
-  return <Text style={[styles.header]}>{title}</Text>;
-};
-
-const CardContent = ({ content }: CardContentProps) => {
-  const { styles } = useStyles(stylesheet);
-  const { type } = useContext<CardContextType>(CardContext);
-  const textVariant = (CardTypes[type] + 'Content') as keyof typeof styles;
-
-  return <Text style={[styles[textVariant]]}>{content}</Text>;
-};
-
-const CardImage = ({ source }: CardImageProps) => {
-  const { styles } = useStyles(stylesheet);
-
-  return <Image source={source} style={[styles.image]} />;
-};
-
-const CardFooter = ({ action }: CardFooterProps) => {
+export const CardTitle = ({ title }: CardTitleProps): ReactElement => {
   const { styles } = useStyles(stylesheet);
 
   return (
-    <View style={[styles.footerParent]}>
-      <View style={[styles.footer as ViewStyle, styles.footerRight]}>
-        <Button.Text title={action} />
-      </View>
+    <View style={styles.titleContainer}>
+      <Text>{title}</Text>
     </View>
   );
 };
 
-Card.Image = CardImage;
-Card.Header = CardHeader;
+export const CardContent = ({ children }: PropsWithChildren): ReactElement => {
+  const { styles } = useStyles(stylesheet);
+
+  return <View style={styles.contentContainer}>{children}</View>;
+};
+
+export const CardActions = ({ children }: PropsWithChildren): ReactElement => {
+  const { styles } = useStyles(stylesheet);
+
+  return <View style={styles.actionsContainer}>{children}</View>;
+};
+
+/* export const CardCover = (): void => {
+  //
+}; */
+
+export const Card = ({ children, variant = 'transparent', style }: CardProps): ReactElement => {
+  const { styles } = useStyles(stylesheet);
+
+  const cardStyles = [styles.cardBase, styles[variant], style];
+
+  return <View style={cardStyles}>{children}</View>;
+};
+
+Card.Title = CardTitle;
 Card.Content = CardContent;
-Card.Footer = CardFooter;
+/* Card.CardCover = CardCover; */
+Card.Actions = CardActions;
 
 export default Card;
