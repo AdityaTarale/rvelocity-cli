@@ -14,7 +14,7 @@ const TextFieldMeta = {
     },
     size: {
       control: { type: 'select' },
-      options: ['default', 'sm', 'lg'],
+      options: ['sm', 'md', 'lg'],
     },
     placeholder: {
       control: { type: 'text' },

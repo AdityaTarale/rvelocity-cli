@@ -31,7 +31,7 @@ const stylesheet = createStyleSheet(theme => ({
     borderColor: theme.colors.darkGray,
   },
   textDisabled: {
-    color: theme.colors.darkGray,
+    // color: theme.colors.darkGray,
   },
 
   // Button variants

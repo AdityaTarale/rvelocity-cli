@@ -1,17 +1,19 @@
+import { Theme } from '@/theme';
 import React from 'react';
-import { View, Text } from 'react-native';
-import styles from './styles.ts';
+import { StyleProp, View, ViewStyle } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
+import stylesheet from './styles';
 
 type DividerProps = {
-  // Define props here
+  variant?: 'line' | 'dotted' | 'dashed';
+  height?: keyof Theme['spacing'];
+  style: StyleProp<ViewStyle>;
 };
 
-const Divider: React.FC<DividerProps> = props => {
-  return (
-    <View style={styles.container}>
-      <Text>Divider Component</Text>
-    </View>
-  );
+const Divider: React.FC<DividerProps> = ({ variant = 'line', height = 1, style, ...rest }) => {
+  const { styles } = useStyles(stylesheet);
+
+  return <View style={[styles.container, styles[variant], { height: height }, style]} {...rest} />;
 };
 
 export default Divider;

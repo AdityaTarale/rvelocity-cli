@@ -1,12 +1,12 @@
-import { type Animation as animationType, getAnimation } from '@assets/constants/animations';
+import { getAnimation, type Animation as animationType } from '@assets/constants/animations';
 import { getIcon, type Icon as IconType } from '@assets/constants/icons';
 import { getImage, type Image as ImageType } from '@assets/constants/images';
 import LottieView from 'lottie-react-native';
 import React, { type FC, type ReactNode } from 'react';
 import { Image, type ImageSourcePropType } from 'react-native';
 
-import VectorIcon, { type VectorIconProps } from '../VectorIcon';
 import { useStyles } from 'react-native-unistyles';
+import VectorIcon, { type VectorIconProps } from '../VectorIcon';
 
 export interface IconProps extends Omit<VectorIconProps, 'name'> {
   icon: IconType | ImageType | animationType | string;
@@ -17,9 +17,9 @@ export interface IconProps extends Omit<VectorIconProps, 'name'> {
 
 const Icon: FC<IconProps> = ({
   icon,
-  variant = 'image',
+  variant,
   size = 7,
-  color = 'brand',
+  color = 'primary',
   autoPlay = true,
   loop = false,
   ...rest
