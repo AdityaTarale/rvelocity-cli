@@ -55,8 +55,6 @@ const Card = ({ children, type, align, ...rest }: CardProps): ReactElement => {
     [type, align],
   );
 
-  console.log('variant = ', type, styles[type]);
-
   return (
     <Provider value={memorizedValue}>
       <View style={[styles.flex, styles[type], styles[align]]} {...rest}>
@@ -71,7 +69,6 @@ const CardHeader = ({ title }: CardHeaderProps) => {
   const { type } = useContext<CardContextType>(CardContext);
   const textVariant = (CardTypes[type] + 'Header') as keyof typeof styles;
 
-  console.log('ggg', styles[textVariant], textVariant);
   return <Text style={[styles[textVariant]]}>{title}</Text>;
 };
 
@@ -80,7 +77,6 @@ const CardContent = ({ content }: CardContentProps) => {
   const { type } = useContext<CardContextType>(CardContext);
   const textVariant = (CardTypes[type] + 'Content') as keyof typeof styles;
 
-  console.log('ggg', styles[textVariant]);
   return <Text style={[styles[textVariant]]}>{content}</Text>;
 };
 
@@ -94,8 +90,6 @@ const CardFooter = ({ action }: CardFooterProps) => {
   const { styles } = useStyles(stylesheet);
   const { type } = useContext<CardContextType>(CardContext);
   const footerVariant = (CardTypes[type] + 'Footer') as keyof typeof styles;
-
-  console.log('ggg', styles[footerVariant]);
 
   return (
     <View style={[styles.footerParent]}>
