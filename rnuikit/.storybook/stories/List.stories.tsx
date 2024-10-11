@@ -10,6 +10,7 @@ const meta: Meta<typeof List> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof List>;
 
 export const DefaultList: Story = {

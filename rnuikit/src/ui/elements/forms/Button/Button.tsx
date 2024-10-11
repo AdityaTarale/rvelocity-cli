@@ -14,7 +14,7 @@ const ButtonTypes = {
 type ButtonProps = TouchableOpacityProps & {
   type: keyof typeof ButtonTypes;
   variant: 'primary' | 'secondary';
-  size: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg';
   loading?: boolean;
 };
 
@@ -64,7 +64,7 @@ const Button = ({
   onPress,
   variant,
   type,
-  size,
+  size = 'md',
   disabled = false,
   loading = false,
   ...rest

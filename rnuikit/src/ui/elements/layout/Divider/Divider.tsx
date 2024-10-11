@@ -7,7 +7,7 @@ import stylesheet from './styles';
 type DividerProps = {
   variant?: 'line' | 'dotted' | 'dashed';
   height?: keyof Theme['spacing'];
-  style: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
 };
 
 const Divider: React.FC<DividerProps> = ({ variant = 'line', height = 1, style, ...rest }) => {

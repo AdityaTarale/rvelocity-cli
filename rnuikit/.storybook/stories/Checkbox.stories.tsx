@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Checkbox from '../../src/ui/elements/forms/Checkbox';
 import { decorators } from '../decorators';
 
-const CheckboxMeta = {
+const meta = {
   title: 'Elements/Forms/Checkbox',
   component: Checkbox,
   argTypes: {
@@ -31,7 +31,7 @@ const CheckboxMeta = {
   decorators: decorators,
 } satisfies Meta<typeof Checkbox>;
 
-export default CheckboxMeta;
+export default meta;
 
 type CheckboxStory = StoryObj<typeof Checkbox>;
 

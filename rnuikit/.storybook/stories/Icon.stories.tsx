@@ -8,7 +8,7 @@ const options = [
   72, 80, 88, 96, 156,
 ];
 
-const IconMeta = {
+const meta = {
   title: 'Elements/Media Icons/Icon',
   component: Icon,
   argTypes: {
@@ -34,17 +34,17 @@ const IconMeta = {
   decorators: decorators,
 } satisfies Meta<typeof Icon>;
 
-export default IconMeta;
+export default meta;
 
-type IconStory = StoryObj<typeof Icon>;
+type Story = StoryObj<typeof Icon>;
 
-const IconTemplate: IconStory = {
+const IconTemplate: Story = {
   render: ({ ...args }) => {
     return <Icon {...args} />;
   },
 };
 
-export const Image: StoryObj<typeof Icon> = {
+export const Image: Story = {
   ...IconTemplate,
   args: {
     variant: 'image',
@@ -52,7 +52,7 @@ export const Image: StoryObj<typeof Icon> = {
   },
 };
 
-export const Vector: StoryObj<typeof Icon> = {
+export const Vector: Story = {
   ...IconTemplate,
   argTypes: {
     type: {
@@ -82,7 +82,7 @@ export const Vector: StoryObj<typeof Icon> = {
   },
 };
 
-export const Svg: StoryObj<typeof Icon> = {
+export const Svg: Story = {
   ...IconTemplate,
   args: {
     variant: 'svg',
@@ -90,7 +90,7 @@ export const Svg: StoryObj<typeof Icon> = {
   },
 };
 
-export const Animation: StoryObj<typeof Icon> = {
+export const Animation: Story = {
   ...IconTemplate,
   args: {
     variant: 'image',

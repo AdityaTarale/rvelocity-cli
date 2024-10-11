@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Divider from '../../src/ui/elements/layout/Divider';
 import { decorators } from '../decorators';
 
-const DividerMeta = {
+const meta = {
   title: 'Elements/Layout/Divider',
   component: Divider,
   argTypes: {
@@ -19,11 +19,11 @@ const DividerMeta = {
   decorators: decorators,
 } satisfies Meta<typeof Divider>;
 
-export default DividerMeta;
+export default meta;
 
-type DividerStory = StoryObj<typeof Divider>;
+type Story = StoryObj<typeof Divider>;
 
-const DividerTemplate: DividerStory = {
+const DividerTemplate: Story = {
   render: args => {
     return <Divider variant={args.variant} height={args.height} />;
   },
