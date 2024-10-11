@@ -13,7 +13,6 @@ const CardTypes = {
 interface CardProps {
   children: ReactNode;
   type: keyof typeof CardTypes;
-  align: 'center' | 'left' | 'right';
 }
 
 interface CardHeaderProps {
@@ -34,30 +33,28 @@ interface CardFooterProps {
 
 type CardContextType = {
   type: keyof typeof CardTypes;
-  align: 'center' | 'left' | 'right';
 };
 
 const CardContext = createContext<CardContextType>({
   type: 'contained',
-  align: 'center',
 });
 
 const { Provider } = CardContext;
 
-const Card = ({ children, type, align, ...rest }: CardProps): ReactElement => {
+const Card = ({ children, type, ...rest }: CardProps): ReactElement => {
   const { styles } = useStyles(stylesheet);
 
   const memorizedValue = useMemo(
     () => ({
       type,
-      align,
+
     }),
-    [type, align],
+    [type],
   );
 
   return (
     <Provider value={memorizedValue}>
-      <View style={[styles.flex, styles[type], styles[align]]} {...rest}>
+      <View style={[styles.flex, styles[type]]} {...rest}>
         {children}
       </View>
     </Provider>
@@ -66,10 +63,8 @@ const Card = ({ children, type, align, ...rest }: CardProps): ReactElement => {
 
 const CardHeader = ({ title }: CardHeaderProps) => {
   const { styles } = useStyles(stylesheet);
-  const { type } = useContext<CardContextType>(CardContext);
-  const textVariant = (CardTypes[type] + 'Header') as keyof typeof styles;
 
-  return <Text style={[styles[textVariant]]}>{title}</Text>;
+  return <Text style={[styles.header]}>{title}</Text>;
 };
 
 const CardContent = ({ content }: CardContentProps) => {
@@ -88,12 +83,10 @@ const CardImage = ({ source }: CardImageProps) => {
 
 const CardFooter = ({ action }: CardFooterProps) => {
   const { styles } = useStyles(stylesheet);
-  const { type } = useContext<CardContextType>(CardContext);
-  const footerVariant = (CardTypes[type] + 'Footer') as keyof typeof styles;
 
   return (
     <View style={[styles.footerParent]}>
-      <View style={[styles[footerVariant] as ViewStyle, styles.footerRight]}>
+      <View style={[styles.footer as ViewStyle, styles.footerRight]}>
         <Button.Text title={action} />
       </View>
     </View>

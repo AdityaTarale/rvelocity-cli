@@ -10,11 +10,7 @@ const meta = {
     type: {
       control: { type: 'radio' },
       options: ['contained', 'outlined', 'elevated'],
-    },
-    align: {
-      control: { type: 'radio' },
-      options: ['center', 'left', 'right'],
-    },
+    }
   },
   args: {},
   decorators: decorators,
@@ -43,7 +39,6 @@ export const Outlined: Story = {
   ...CardTemplate,
   args: {
     type: 'outlined',
-    align: 'left',
   },
 };
 
@@ -51,7 +46,6 @@ export const Contained: Story = {
   ...CardTemplate,
   args: {
     type: 'contained',
-    align: 'left',
   },
 };
 
@@ -59,6 +53,5 @@ export const Elevated: Story = {
   ...CardTemplate,
   args: {
     type: 'elevated',
-    align: 'left',
   },
 };

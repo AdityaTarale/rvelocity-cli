@@ -8,15 +8,17 @@ const stylesheet = createStyleSheet(theme => ({
     height: 'auto',
     borderRadius: 7,
     padding: theme.spacing[16],
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    color: theme.colors.darkGray,
   },
 
   // Card type
   contained: {
-    backgroundColor: theme.colors.primary,
-    borderColor: theme.colors.primary,
+    backgroundColor: theme.colors.secondary,
   },
   outlined: {
-    borderWidth: 0.2,
+    borderWidth: 0.4,
     backgroundColor: 'transparent',
     borderColor: theme.colors.secondary,
   },
@@ -32,71 +34,13 @@ const stylesheet = createStyleSheet(theme => ({
     elevation: 5,
   },
 
-  // Alignment
-  center: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  left: {
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-  },
-  right: {
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
-  },
-
-  // Header variants
-  OutlinedHeader: {
+  header: {
     fontSize: 20,
     fontWeight: 900,
-    color: theme.colors.primary,
-  },
-  ContainedHeader: {
-    fontSize: 20,
-    fontWeight: 900,
-    color: theme.colors.background,
-  },
-  ElevatedHeader: {
-    fontSize: 20,
-    fontWeight: 900,
-    color: theme.colors.primary,
   },
 
-  // Content variants
-  OutlinedContent: {
-    color: theme.colors.primary,
-  },
-  ContainedContent: {
-    color: theme.colors.secondary,
-  },
-  ElevatedContent: {
-    color: theme.colors.secondary,
-  },
-
-  // Header fonts
-  smHeader: {
-    fontSize: 20,
-    fontWeight: '500',
-  },
-  mdHeader: {
-    fontSize: 25,
-    fontWeight: '700',
-  },
-  lgHeader: {
-    fontSize: 30,
-    fontWeight: '900',
-  },
-
-  // Content fonts
-  smContent: {
+  content: {
     fontSize: 15,
-  },
-  mdContent: {
-    fontSize: 20,
-  },
-  lgContent: {
-    fontSize: 23,
   },
 
   // Image
@@ -119,22 +63,13 @@ const stylesheet = createStyleSheet(theme => ({
     alignItems: 'center',
   },
 
-  OutlinedFooter: {
-    padding: theme.spacing[8],
-    backgroundColor: theme.colors.warning,
-    borderRadius: 7,
+  footer: {
     fontWeight: '700',
-  },
-  ContainedFooter: {
-    padding: theme.spacing[8],
     borderRadius: 7,
-    fontWeight: '700',
-  },
-  ElevatedFooter: {
+    fontSize: 15,
     padding: theme.spacing[8],
+    color: theme.colors.white,
     backgroundColor: theme.colors.primary,
-    borderRadius: 7,
-    fontWeight: '700',
   },
 }));
 
