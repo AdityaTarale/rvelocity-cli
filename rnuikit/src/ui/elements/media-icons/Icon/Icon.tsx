@@ -10,7 +10,7 @@ import VectorIcon, { type VectorIconProps } from '../VectorIcon';
 
 export interface IconProps extends Omit<VectorIconProps, 'name'> {
   icon: IconType | ImageType | animationType | string;
-  variant?: 'vector' | 'svg' | 'image' | 'animation';
+  variant: 'vector' | 'svg' | 'image' | 'animation';
   autoPlay?: boolean;
   loop?: boolean;
 }

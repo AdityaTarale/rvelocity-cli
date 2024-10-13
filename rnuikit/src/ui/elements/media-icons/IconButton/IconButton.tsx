@@ -5,12 +5,12 @@ import Clickable from '../../Clickable';
 import Icon, { type IconProps } from '../Icon';
 import stylesheet from './styles';
 
-export type IconButtonProps = IconProps & {
+export interface IconButtonProps extends IconProps {
   onPress?: () => void;
   disabled?: boolean;
   iconStyle?: 'outlined' | 'contained';
   padding?: number;
-};
+}
 
 const IconButton: FC<IconButtonProps> = ({
   icon,

@@ -4,12 +4,12 @@ import { useStyles } from 'react-native-unistyles';
 
 import { getVectorIcon, type IconKeys } from '@/utils';
 
-export type VectorIconProps = {
+export interface VectorIconProps {
   type?: IconKeys;
   name: string;
   size?: keyof Theme['spacing'];
   color?: keyof Theme['colors'];
-};
+}
 
 const VectorIcon: FC<VectorIconProps> = ({
   type = 'material',
