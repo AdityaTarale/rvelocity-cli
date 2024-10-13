@@ -133,5 +133,172 @@ function initReactNativeProject(projectRoot) {
 }
 
 function initReactProject(projectRoot) {
-  // Your logic for initializing a React project here
+  const foldersToCopy = [
+    "api",
+    "components",
+    "config",
+    "constants",
+    "hooks",
+    "i18n",
+    "pages",
+    "services",
+    "store",
+    "types",
+    "utils",
+  ];
+
+  const reactkitPath = path.join(__dirname, "../reactkit");
+  const reactkitSrcPath = path.join(reactkitPath, "src");
+  const reactkitPublicPath = path.join(reactkitPath, "public");
+  const reactkitAssetsPath = path.join(reactkitPath, "assets");
+  const reactkitAppPath = path.join(reactkitSrcPath, "App.tsx");
+  const reactkitIndexPath = path.join(reactkitPath, "index.js");
+  const reactkitWebpackConfigPath = path.join(
+    reactkitPath,
+    "webpack.config.js"
+  ); // or vite.config.js
+  const reactkitPostcssConfigPath = path.join(
+    reactkitPath,
+    "postcss.config.js"
+  );
+  const reactkitTailwindConfigPath = path.join(
+    reactkitPath,
+    "tailwind.config.js"
+  );
+  const reactkitTailwindCssPath = path.join(reactkitSrcPath, "index.css");
+
+  const targetIndexPath = path.join(projectRoot, "src", "index.js");
+  const targetAppPath = path.join(projectRoot, "src", "App.tsx");
+  const targetPublicPath = path.join(projectRoot, "public");
+  const targetAssetsPath = path.join(projectRoot, "assets");
+  const targetWebpackConfigPath = path.join(projectRoot, "webpack.config.js"); // or vite.config.js
+  const targetPostcssConfigPath = path.join(projectRoot, "postcss.config.js");
+  const targetTailwindConfigPath = path.join(projectRoot, "tailwind.config.js");
+  const targetTailwindCssPath = path.join(projectRoot, "src", "index.css");
+
+  // Copy folders from reactkit
+  foldersToCopy.forEach((folder) => {
+    const sourcePath = path.join(reactkitSrcPath, folder);
+    const targetPath = path.join(projectRoot, "src", folder);
+
+    if (fs.existsSync(sourcePath)) {
+      copyFolderRecursiveSync(sourcePath, targetPath);
+    }
+  });
+
+  // Copy public folder
+  if (fs.existsSync(reactkitPublicPath)) {
+    copyFolderRecursiveSync(reactkitPublicPath, targetPublicPath);
+  }
+
+  // Copy assets folder
+  if (fs.existsSync(reactkitAssetsPath)) {
+    copyFolderRecursiveSync(reactkitAssetsPath, targetAssetsPath);
+  }
+
+  // Copy App.tsx
+  if (fs.existsSync(reactkitAppPath)) {
+    fs.copyFileSync(reactkitAppPath, targetAppPath);
+  }
+
+  // Copy index.js
+  if (fs.existsSync(reactkitIndexPath)) {
+    fs.copyFileSync(reactkitIndexPath, targetIndexPath);
+  }
+
+  // Copy Webpack configuration
+  if (fs.existsSync(reactkitWebpackConfigPath)) {
+    fs.copyFileSync(reactkitWebpackConfigPath, targetWebpackConfigPath);
+  }
+
+  // Copy PostCSS configuration
+  if (fs.existsSync(reactkitPostcssConfigPath)) {
+    fs.copyFileSync(reactkitPostcssConfigPath, targetPostcssConfigPath);
+  }
+
+  // Copy Tailwind configuration
+  if (fs.existsSync(reactkitTailwindConfigPath)) {
+    fs.copyFileSync(reactkitTailwindConfigPath, targetTailwindConfigPath);
+  }
+
+  // Copy Tailwind CSS file
+  if (fs.existsSync(reactkitTailwindCssPath)) {
+    fs.copyFileSync(reactkitTailwindCssPath, targetTailwindCssPath);
+  }
+
+  // Install dependencies
+  const packageManager = detectPackageManager();
+  const dependencies = [
+    "react",
+    "react-dom",
+    "react-router-dom",
+    "axios",
+    "zustand",
+    "react-i18next",
+    "i18next",
+    "date-fns",
+    "@tanstack/react-query@^4.10.1",
+    // Add other necessary dependencies
+  ];
+  const devDependencies = [
+    "tailwindcss",
+    "postcss",
+    "autoprefixer",
+    "webpack",
+    "webpack-cli",
+    "webpack-dev-server",
+    "babel-loader",
+    "@babel/core",
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript",
+    "typescript",
+    "@types/react",
+    "@types/react-dom",
+    "@types/react-router-dom",
+    "css-loader",
+    "style-loader",
+    "html-webpack-plugin",
+    "fork-ts-checker-webpack-plugin",
+    "eslint",
+    "eslint-plugin-react",
+    "prettier",
+    "jest",
+    "@tanstack/react-query-devtools@^4.0.0",
+    // Add other necessary dev dependencies
+  ];
+
+  // Run the installation
+  packageInstaller(packageManager, dependencies);
+  packageInstaller(packageManager, devDependencies, true);
+  console.log(
+    chalk.green("React project initialized successfully with Tailwind CSS.")
+  );
+  open("https://github.com/AdityaTarale/rvelocity-cli/blob/main/REACT_INIT.md");
 }
+
+// Helper function to copy folders recursively
+function copyFolderRecursiveSync(source, target) {
+  if (!fs.existsSync(source)) {
+    return;
+  }
+
+  if (!fs.existsSync(target)) {
+    fs.mkdirSync(target, { recursive: true });
+  }
+
+  if (fs.lstatSync(source).isDirectory()) {
+    const files = fs.readdirSync(source);
+    files.forEach((file) => {
+      const curSource = path.join(source, file);
+      const curTarget = path.join(target, file);
+      if (fs.lstatSync(curSource).isDirectory()) {
+        copyFolderRecursiveSync(curSource, curTarget);
+      } else {
+        fs.copyFileSync(curSource, curTarget);
+      }
+    });
+  }
+}
+
+module.exports = { initReactProject };
