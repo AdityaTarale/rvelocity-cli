@@ -1,4 +1,4 @@
-type useStringHelperReturn = {
+type stringHelperReturn = {
   capitalFirstLetter: (text: string) => string;
   camelize: (text: string) => string;
 };
@@ -17,6 +17,6 @@ const camelize = (str: string): string => {
 export const stringHelper = {
   capitalFirstLetter,
   camelize,
-} as useStringHelperReturn;
+} as stringHelperReturn;
 
 export default stringHelper;
