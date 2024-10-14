@@ -118,6 +118,8 @@ function initReactNativeProject(projectRoot) {
     "lottie-react-native",
     "react-native-gesture-handler",
     "react-native-reanimated",
+    "react-native-linear-gradient",
+    "@shopify/flash-list",
   ];
   const devDependencies = [
     "babel-plugin-module-resolver",
@@ -130,6 +132,8 @@ function initReactNativeProject(projectRoot) {
     "@storybook/react-native",
     "@gorhom/bottom-sheet",
     "@react-native-async-storage/async-storage",
+    "@react-native-community/slider",
+    "@react-native-community/datetimepicker",
   ];
 
   // Run the installation
