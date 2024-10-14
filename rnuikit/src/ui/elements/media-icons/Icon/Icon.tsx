@@ -44,8 +44,7 @@ const Icon: FC<IconProps> = ({
           <Image
             source={imageSource as ImageSourcePropType}
             resizeMode="contain"
-            width={size}
-            height={size}
+            style={{ width: size, height: size }}
             {...rest}
           />
         );
@@ -70,7 +69,7 @@ const Icon: FC<IconProps> = ({
 export default Icon;
 
 /**
- * How to use
+ *  How to use
  *  <Icon variant="vector" icon="arrow-back" />
  *  <Icon variant="svg" icon="menu" />
  *  <Icon variant="image" icon="slider" />

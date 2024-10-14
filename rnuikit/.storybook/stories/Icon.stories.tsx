@@ -37,6 +37,7 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof Icon>;
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const IconTemplate: Story = {
   render: ({ ...args }) => {
@@ -77,8 +78,8 @@ export const Vector: Story = {
   },
   args: {
     variant: 'vector',
-    icon: 'arrowleft',
-    type: 'ant',
+    icon: 'apps',
+    type: 'material',
   },
 };
 

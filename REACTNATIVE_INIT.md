@@ -88,6 +88,26 @@ When setting up navigation (e.g., using React Navigation), you may need to modif
    }
    ```
 
+---
+### 4. Set path for `react-native-vector-icons`
+
+To make font management smoother on Android and IOS, you need to update the `android/app/build.gradle` file and `ios/Podfile`.
+
+#### Update `gradle.properties`
+
+Add the following line to `android/app/gradle.properties` at the end of file:
+
+```properties
+apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+```
+
+### Update `Podfile`
+
+Add the following line to `ios/Podfile`
+```properties
+pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+```
+
 This change is required and necessary to properly handle navigation within your React Native application.
 
 ---
