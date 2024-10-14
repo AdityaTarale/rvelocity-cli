@@ -116,11 +116,20 @@ function initReactNativeProject(projectRoot) {
     "@react-navigation/native-stack",
     "date-fns",
     "lottie-react-native",
+    "react-native-gesture-handler",
+    "react-native-reanimated",
   ];
   const devDependencies = [
     "babel-plugin-module-resolver",
     "react-native-svg-transformer",
     "@types/react-native-vector-icons",
+    "@storybook/addon-ondevice-actions",
+    "@storybook/addon-ondevice-backgrounds",
+    "@storybook/addon-ondevice-controls",
+    "@storybook/addon-ondevice-notes",
+    "@storybook/react-native",
+    "@gorhom/bottom-sheet",
+    "@react-native-async-storage/async-storage",
   ];
 
   // Run the installation
